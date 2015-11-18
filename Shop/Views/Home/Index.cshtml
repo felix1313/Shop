@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Shop.Models.UnitModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
+}
+<body>
+    @{
+        @Html.DisplayForModel(Model)
+    }
+</body>

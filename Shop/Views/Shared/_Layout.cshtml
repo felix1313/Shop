@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop</title>
+    <link rel="stylesheet" type="text/css" href="../../Content/css/styles.css">
+</head>
+<body>
+<div id="header">
+    <img src="../../Content/img/images.jpg">
+</div>
+<div id="nav">
+    <ul class=navTop>
+        <li><a href="/Home">Home</a></li>
+        <li><a href="/News">News</a></li>
+        <li><a href="/Contacts">Contact</a></li>
+        <li><a href="/About">About</a></li>
+    </ul>
+</div>
+<div class="inline_block">
+    <div id="section">
+
+        @RenderBody()
+
+    </div>
+    <div id="advertising">
+
+    </div>
+</div>
+
+
+<div id="footer">
+    bla-bla-bla...I'm footer
+</div>
+</body>
+</html>

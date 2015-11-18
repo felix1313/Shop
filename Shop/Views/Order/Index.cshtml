@@ -1,0 +1,26 @@
+﻿@model Shop.Models.OrderModel
+@{
+    ViewBag.Title = "OrderView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+<fieldset>
+    Name:<br>
+    <input type="text" value="@Model.CustomerName">
+    <br>
+    Address:<br>
+    <input type="text" value="@Model.Address">
+    <br>
+    Phone:<br>
+    <input type="text" value="@Model.Phone">
+    <br>
+    E-mail:<br>
+    <input type="text" value="@Model.Email">
+    <br>
+    Quantity:<br>
+    <input type="text" value="@Model.Quantity">
+    <br>
+    <br><br>
+    <input style="horiz-align: center" type="submit" value="Order">
+</fieldset>
