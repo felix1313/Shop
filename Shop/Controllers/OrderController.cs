@@ -13,7 +13,7 @@ namespace Shop.Controllers
         public ActionResult Index(string unitId)
         {
             var unit = DB.DataProvider.Instance.GetAllUnits().First(u => u.Id.ToString().Equals(unitId));
-            return View(new OrderModel(new UnitModel(unit)));
+            return View(new OrderModel(new ItemModel()));
         }
 
     }

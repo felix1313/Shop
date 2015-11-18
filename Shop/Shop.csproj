@@ -114,6 +114,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Filters\LocalizationFilter.cs" />
+    <Compile Include="Localization\AbstractTranslationsProvider.cs" />
+    <Compile Include="Localization\DatabaseTranslationsProvider.cs" />
+    <Compile Include="Localization\ITranslationsKeyGenerator.cs" />
     <Compile Include="ShopDataContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,7 +130,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderModel.cs" />
-    <Compile Include="Models\UnitModel.cs" />
+    <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,13 +140,22 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.js" />
+    <Content Include="Content\css\styles.css" />
     <Content Include="Content\img\background.jpg" />
+    <Content Include="Content\img\big_sale.jpg" />
+    <Content Include="Content\img\bottom_right.png" />
+    <Content Include="Content\img\images.jpg" />
+    <Content Include="Content\img\phone.jpg" />
     <Content Include="Content\img\Phone1.jpg" />
     <Content Include="Content\img\Phone2.jpg" />
     <Content Include="Content\img\Phone3.jpg" />
+    <Content Include="Content\img\Phone4.jpg" />
+    <Content Include="Content\img\Phone5.jpg" />
+    <Content Include="Content\img\Phone6.jpg" />
+    <Content Include="Content\img\Phone7.jpg" />
+    <Content Include="Content\img\shop_name.jpg" />
+    <Content Include="Content\img\w_shop.png" />
     <Content Include="Global.asax" />
-    <Content Include="Content\css\styles.css" />
-    <Content Include="Content\img\images.jpg" />
     <Content Include="Views\Shared\shop.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

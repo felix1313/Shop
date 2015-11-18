@@ -2,14 +2,14 @@
 {
     public class OrderModel
     {
-        private readonly UnitModel orderedItem;
+        private readonly ItemModel orderedItem;
 
-        public OrderModel(UnitModel orderedItem)
+        public OrderModel(ItemModel orderedItem)
         {
             this.orderedItem = orderedItem;
         }
 
-        public UnitModel OrderedItem
+        public ItemModel OrderedItem
         {
             get
             {
