@@ -118,6 +118,7 @@
     <Compile Include="Localization\AbstractTranslationsProvider.cs" />
     <Compile Include="Localization\DatabaseTranslationsProvider.cs" />
     <Compile Include="Localization\ITranslationsKeyGenerator.cs" />
+    <Compile Include="Models\DbModelConverter.cs" />
     <Compile Include="ShopDataContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

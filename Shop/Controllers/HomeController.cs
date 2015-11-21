@@ -14,8 +14,9 @@ namespace Shop.Controllers
 
         public ActionResult Index()
         {
-            return View(new List<ItemModel>());
-            //return View(DB.DataProvider.Instance.GetAllUnits().Select(u => new ItemModel()));
+			
+            //return View(new List<ItemModel>());
+            return View(DB.DataProvider.Instance.GetAllUnits().Select(u => u.ToItemModel()));
         }
 
     }
