@@ -109,15 +109,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Attributes\DisplayNameAttribute.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Enums\Language.cs" />
     <Compile Include="Filters\LocalizationFilter.cs" />
     <Compile Include="Localization\AbstractTranslationsProvider.cs" />
+    <Compile Include="Localization\CamelCaseKeyGenerator.cs" />
     <Compile Include="Localization\DatabaseTranslationsProvider.cs" />
+    <Compile Include="Localization\DotSeparatedKeyGenerator.cs" />
+    <Compile Include="Localization\IniTranslationsProvider.cs" />
     <Compile Include="Localization\ITranslationsKeyGenerator.cs" />
+    <Compile Include="Localization\PropertiesTranslationsProvider.cs" />
     <Compile Include="Models\DbModelConverter.cs" />
     <Compile Include="ShopDataContext.designer.cs">
       <AutoGen>True</AutoGen>
@@ -190,10 +197,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\UnitModel.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Translations.properties" />
+    <None Include="Web.ConnectionStrings.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

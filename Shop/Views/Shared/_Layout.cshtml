@@ -1,5 +1,11 @@
-﻿@{
+﻿@using Shop.Localization
+@{
     ViewBag.Title = "_Layout";
+}
+
+@helper Translation(params string[] keys)
+{
+  <span>@(((AbstractTranslationsProvider) ViewBag.TranslationsProvider).GetTranslation(keys))</span>
 }
 
 <!DOCTYPE html>
@@ -17,10 +23,10 @@
     </div>
     <div id="nav">
         <ul class=navTop>
-            <li><a href="/Home">Home</a></li>
-            <li><a href="/News">News</a></li>
-            <li><a href="/Contacts">Contact</a></li>
-            <li><a href="/About">About</a></li>
+            <li><a href="/Home">@Translation("menu","home")</a></li>
+            <li><a href="/News">@Translation("menu", "news")</a></li>
+            <li><a href="/Contacts">@Translation("menu", "contact")</a></li>
+            <li><a href="/About">@Translation("menu", "about")</a></li>
         </ul>
     </div>
     <div class="inline_block">
