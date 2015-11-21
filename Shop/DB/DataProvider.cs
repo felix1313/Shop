@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 
 namespace Shop.DB
 {
@@ -35,6 +36,8 @@ namespace Shop.DB
             }
         }
 
+        
+
         public void CreateOrder(IEnumerable<UnitOrderRelation> unitOrderRelations, CustomerInfo customerInfo)
         {
             var order = new Order();
@@ -49,6 +52,22 @@ namespace Shop.DB
             {
                 hren.Orders.InsertOnSubmit(order);
                 hren.SubmitChanges();
+            }
+        }
+
+        public Admin GetAdmin(string email)
+        {
+            using (var db = new ShopDataContext())
+            {
+                return db.Admins.SingleOrDefault(a => a.Email.Equals(email));
+            }
+        }
+
+        public void CreateAdmin(string email, string password)
+        {
+            using (var db = new ShopDataContext())
+            {
+                db.Admins.InsertOnSubmit(new Admin {Email = email, Password = password});
             }
         }
     }
