@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using Shop.Enums;
+using Shop.Localization;
 
 namespace Shop
 {
@@ -16,5 +17,15 @@ namespace Shop
                 return (Language) Enum.Parse(typeof (Language), ConfigurationManager.AppSettings["DefaultLang"], true);
             }
         }
+
+	    public static TranslationsProviderType TranslationsProviderType 
+	    {
+		    get
+		    {
+			    return
+				    (TranslationsProviderType)
+					    Enum.Parse(typeof (TranslationsProviderType), ConfigurationManager.AppSettings["TranslationsProvider"], true);
+		    }
+	    }
     }
 }

@@ -20,9 +20,8 @@ namespace Shop.Filters
                 Enum.TryParse(context.HttpContext.Session["lang"].ToString(), out lang);
             }
 
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Translations.properties");
-
-	        context.HttpContext.Items["Translations"] = new PropertiesTranslationsProvider(path, lang);
+	        context.HttpContext.Items["Translations"] =
+		        TranslationsProviderFactory.GetTranslationsProvider(AppSettings.TranslationsProviderType, lang);
         }
     }
 }

@@ -144,6 +144,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Enums\Language.cs" />
+    <Compile Include="Enums\TranslationsProviderType.cs" />
     <Compile Include="Filters\LocalizationFilter.cs" />
     <Compile Include="Localization\AbstractTranslationsProvider.cs" />
     <Compile Include="Localization\CamelCaseKeyGenerator.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Localization\IniTranslationsProvider.cs" />
     <Compile Include="Localization\ITranslationsKeyGenerator.cs" />
     <Compile Include="Localization\PropertiesTranslationsProvider.cs" />
+    <Compile Include="Localization\TranslationsProviderFactory.cs" />
     <Compile Include="Models\AccountViewModels\LoginViewModel.cs" />
     <Compile Include="Models\AccountViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\AccountViewModels\User.cs" />
