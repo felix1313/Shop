@@ -1,0 +1,8 @@
+﻿@using System.Runtime.Remoting.Contexts
+@using Shop.Localization
+   @helper Translation(params string[] keys)
+{
+		
+	<span>@(((AbstractTranslationsProvider)Context.Items["Translations"]).GetTranslation(keys))</span>
+}
+

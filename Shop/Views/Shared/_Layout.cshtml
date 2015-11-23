@@ -3,10 +3,7 @@
     ViewBag.Title = "_Layout";
 }
 
-@helper Translation(params string[] keys)
-{
-  <span>@(((AbstractTranslationsProvider) ViewBag.TranslationsProvider).GetTranslation(keys))</span>
-}
+
 
 <!DOCTYPE html>
 <html>
@@ -23,10 +20,10 @@
     </div>
     <div id="nav">
         <ul class=navTop>
-            <li><a href="/Home">@Translation("menu","home")</a></li>
-            <li><a href="/News">@Translation("menu", "news")</a></li>
-            <li><a href="/Contacts">@Translation("menu", "contact")</a></li>
-            <li><a href="/About">@Translation("menu", "about")</a></li>
+            <li><a href="/Home">@Helper.Translation("menu","home")</a></li>
+            <li><a href="/News">@Helper.Translation("menu", "news")</a></li>
+            <li><a href="/Contacts">@Helper.Translation("menu", "contact")</a></li>
+            <li><a href="/About">@Helper.Translation("menu", "about")</a></li>
         </ul>
     </div>
     <div class="inline_block">

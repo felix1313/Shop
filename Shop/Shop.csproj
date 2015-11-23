@@ -152,13 +152,11 @@
     <Compile Include="Localization\IniTranslationsProvider.cs" />
     <Compile Include="Localization\ITranslationsKeyGenerator.cs" />
     <Compile Include="Localization\PropertiesTranslationsProvider.cs" />
-    <Compile Include="LoginViewModel.cs" />
     <Compile Include="Models\AccountViewModels\LoginViewModel.cs" />
     <Compile Include="Models\AccountViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\AccountViewModels\User.cs" />
     <Compile Include="Models\AccountViewModels\UserStore.cs" />
     <Compile Include="Models\DbModelConverter.cs" />
-    <Compile Include="RegisterViewModel.cs" />
     <Compile Include="ShopDataContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +223,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\Helper.cshtml" />
     <None Include="ShopDataContext.dbml.layout">
       <DependentUpon>ShopDataContext.dbml</DependentUpon>
     </None>

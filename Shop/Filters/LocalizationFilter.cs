@@ -21,8 +21,8 @@ namespace Shop.Filters
             }
 
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Translations.properties");
-            context.Controller.ViewBag.TranslationsProvider =
-                new PropertiesTranslationsProvider(path, lang);
+
+	        context.HttpContext.Items["Translations"] = new PropertiesTranslationsProvider(path, lang);
         }
     }
 }
