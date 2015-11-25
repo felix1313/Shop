@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace Shop.Models
 {
     public class OrderModel
     {
-        private readonly IEnumerable<OrderedItemModel> orderedItems =
+        private readonly ObservableCollection<OrderedItemModel> orderedItems =
             new ObservableCollection<OrderedItemModel>();
 
 		public string CustomerName { get; set; }
@@ -16,7 +15,7 @@ namespace Shop.Models
 
         public string Email { get; set; }
 
-        public IEnumerable<OrderedItemModel> OrderedItems
+        public ObservableCollection<OrderedItemModel> OrderedItems
         {
             get
             {

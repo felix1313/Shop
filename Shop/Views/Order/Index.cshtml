@@ -19,8 +19,15 @@
 		E-mail:<br>
 		<input type="email" required name="Email" value="@Model.Email">
 	    <br>
-        @Html.DisplayForModel("OrderedItemsTemplate", Model.OrderedItems)
+	    <br/>
+	    <label>Item name</label>
+	    <label style="margin-left: 17px">Quantity</label>
+        <br/>
+	    @for(int i = 0; i < Model.OrderedItems.Count(); ++i)
+        {
+            @Html.DisplayFor(m => Model.OrderedItems[i], "OrderedItemTemplate")
+        }
 		<br><br>
-		<input style="horiz-align: center" type="submit" value="Order">
+	    <input style="horiz-align: center" type="submit" value="Order">
 	</fieldset>
 </form>

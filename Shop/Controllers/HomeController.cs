@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Shop.Helpers;
+using Shop.Models;
 
 namespace Shop.Controllers
 {
@@ -17,13 +18,24 @@ namespace Shop.Controllers
 
         public void AddItemToBasket(int itemId)
         {
-            if (Session[Constants.SESSEION_BASKET] == null)
-                Session[Constants.SESSEION_BASKET] = new Dictionary<int, int>();
-            var dct = (Dictionary<int, int>)Session[Constants.SESSEION_BASKET];
+            if (Session[Constants.SESSION_BASKET] == null)
+                Session[Constants.SESSION_BASKET] = new Dictionary<int, OrderedItemModel>();
+            var dct = (Dictionary<int, OrderedItemModel>)Session[Constants.SESSION_BASKET];
             if (!dct.ContainsKey(itemId)) 
-                dct.Add(itemId, 1);
+                dct.Add(itemId, new OrderedItemModel { UnitId = itemId, Quantity = 1 });
             else
-                dct[itemId]++;
+                dct[itemId].Quantity++;
+        }
+
+        public void SaveSession(int itemId, int quantity)
+        {
+            if (Session[Constants.SESSION_BASKET] == null)
+                Session[Constants.SESSION_BASKET] = new Dictionary<int, OrderedItemModel>();
+            var dct = (Dictionary<int, OrderedItemModel>)Session[Constants.SESSION_BASKET];
+            if (!dct.ContainsKey(itemId))
+                dct.Add(itemId, new OrderedItemModel { UnitId = itemId, Quantity = quantity });
+            else
+                dct[itemId].Quantity = quantity;
         }
     }
 }

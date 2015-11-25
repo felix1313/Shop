@@ -254,7 +254,6 @@
     <None Include="Views\Account\Register.cshtml" />
     <None Include="Views\AdminHome\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\OrderedItemTemplate.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\OrderedItemsTemplate.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
   </ItemGroup>
   <PropertyGroup>

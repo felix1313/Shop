@@ -17,13 +17,12 @@ namespace Shop.Controllers
         {
             //var unit = DB.DataProvider.Instance.GetAllUnits().First(u => u.Id.ToString().Equals(unitId));
             OrderModel orderModel = new OrderModel();
-            var dict = new Dictionary<int, int>();
-            if (Session[Constants.SESSEION_BASKET] is Dictionary<int, int>)
-                dict = Session[Constants.SESSEION_BASKET] as Dictionary<int, int>;
+            var dict = new Dictionary<int, OrderedItemModel>();
+            if (Session[Constants.SESSION_BASKET] is Dictionary<int, OrderedItemModel>)
+                dict = Session[Constants.SESSION_BASKET] as Dictionary<int, OrderedItemModel>;
             foreach (var item in dict)
             {
-                ((ObservableCollection<OrderedItemModel>)orderModel.OrderedItems).
-                    Add(new OrderedItemModel { UnitId = item.Key, Quantity = item.Value });
+                orderModel.OrderedItems.Add(item.Value);
             }
 
 	        return View(orderModel);
@@ -34,6 +33,7 @@ namespace Shop.Controllers
             DataProvider.Instance.CreateOrder(
                 order.OrderedItems.Select(o => new UnitOrderRelation { UnitId = o.UnitId, Quantity = o.Quantity }),
                 new CustomerInfo(order));
+	        Session[Constants.SESSION_BASKET] = null;
 		    return RedirectToAction("Index","Home");
 	    }
     }
