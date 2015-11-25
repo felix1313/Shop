@@ -141,6 +141,8 @@
     <Compile Include="Controllers\AdminHomeController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageItemsController.cs" />
+    <Compile Include="Controllers\ManageOrdersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Enums\Language.cs" />
@@ -159,6 +161,9 @@
     <Compile Include="Models\AccountViewModels\User.cs" />
     <Compile Include="Models\AccountViewModels\UserStore.cs" />
     <Compile Include="Models\DbModelConverter.cs" />
+    <Compile Include="Observers\AdminsObserver.cs" />
+    <Compile Include="Observers\IObservable.cs" />
+    <Compile Include="Observers\IObserver.cs" />
     <Compile Include="ShopDataContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -231,7 +236,7 @@
     </None>
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\UnitModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ItemModel.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />

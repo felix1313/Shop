@@ -9,10 +9,9 @@ namespace Shop.Controllers
         //
         // GET: /Order/
 
-        [HttpPost]
         public ActionResult Index(string unitId)
         {
-            var unit = DB.DataProvider.Instance.GetAllUnits().First(u => u.Id.ToString().Equals(unitId));
+            //var unit = DB.DataProvider.Instance.GetAllUnits().First(u => u.Id.ToString().Equals(unitId));
             return View(new OrderModel(new ItemModel()));
         }
 
