@@ -36,7 +36,13 @@ namespace Shop.DB
             }
         }
 
-        
+        public Unit GetUnitById(int unitId)
+        {
+            using (var hren = new ShopDataContext())
+            {
+                return hren.Units.FirstOrDefault(u => u.Id == unitId);
+            }
+        }
 
         public void CreateOrder(IEnumerable<UnitOrderRelation> unitOrderRelations, CustomerInfo customerInfo)
         {

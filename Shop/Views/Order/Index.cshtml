@@ -7,7 +7,6 @@
 <h2></h2>
 <form action="/Order/SubmitOrder" method="POST">
 	<fieldset>
-		<input name="ItemId" type="hidden" value="@Model.ItemId">
 		Name:<br>
 		<input type="text" required name="CustomerName" value="@Model.CustomerName">
 		<br>
@@ -19,10 +18,8 @@
 		<br>
 		E-mail:<br>
 		<input type="email" required name="Email" value="@Model.Email">
-		<br>
-		Quantity:<br>
-		<input type="number" min="1" required name="Quantity" value="@Model.Quantity">
-		<br>
+	    <br>
+        @Html.DisplayForModel("OrderedItemsTemplate", Model.OrderedItems)
 		<br><br>
 		<input style="horiz-align: center" type="submit" value="Order">
 	</fieldset>

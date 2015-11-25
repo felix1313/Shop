@@ -152,6 +152,7 @@
     <Compile Include="Enums\TranslationsProviderType.cs" />
     <Compile Include="Filters\AuthorizationFilterAttribute.cs" />
     <Compile Include="Filters\LocalizationFilter.cs" />
+    <Compile Include="Helpers\Constants.cs" />
     <Compile Include="IAuthenticationProvider.cs" />
     <Compile Include="IDisplayModelsProvider.cs" />
     <Compile Include="Localization\AbstractTranslationsProvider.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Localization\TranslationsProviderFactory.cs" />
     <Compile Include="Models\AccountViewModels\User.cs" />
     <Compile Include="Models\DbModelConverter.cs" />
+    <Compile Include="Models\OrderedItemModel.cs" />
     <Compile Include="Observers\AdminsObserver.cs" />
     <Compile Include="Observers\IObservable.cs" />
     <Compile Include="Observers\IObserver.cs" />
@@ -251,6 +253,8 @@
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\Register.cshtml" />
     <None Include="Views\AdminHome\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\OrderedItemTemplate.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\OrderedItemsTemplate.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,10 +1,20 @@
 ﻿@model Shop.Models.ItemModel
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    function addToBasket(itemId) {
+        var data =
+        {
+            "itemId": itemId
+        };
+        $.post("/Home/AddItemToBasket", data);
+    }
+</script>
+
 <div class="example_pr">
     <h4>@Model.Name</h4>
     <label class="price">@Model.Price</label>
     <img class="img_product" src="@Model.ImageSrc" alt="specific product">
     <p class="description">@Model.Description</p>
-    
-    <a href="@string.Format("/Order/Index?unitId={0}", @Model.Id)">Order</a>
+    <button onclick="addToBasket(@Model.Id)">Add to basket</button>
 </div>

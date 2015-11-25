@@ -1,7 +1,14 @@
-﻿namespace Shop.DB
+﻿using Shop.Models;
+
+namespace Shop.DB
 {
     public class CustomerInfo
     {
+        public CustomerInfo(OrderModel orderModel)
+            :this(orderModel.CustomerName, orderModel.Email, orderModel.Phone, orderModel.Address)
+        {
+        }
+
         public CustomerInfo(string name, string email, string phone, string address)
         {
             Name = name;
