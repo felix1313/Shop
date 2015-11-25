@@ -4,7 +4,7 @@ using Shop.Models;
 
 namespace Shop.Controllers
 {
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
         //
         // GET: /Order/

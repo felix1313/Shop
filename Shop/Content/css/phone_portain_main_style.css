@@ -1,0 +1,66 @@
+@media only screen  and (max-width: 320px) {
+.top_img2{
+	margin-left:3%;
+	height:50px;
+}
+.top_img3{
+	margin-left:4%;
+	height:40px;
+}
+ul.navTop li{
+	margin-left:0px;
+	display: inline-block;
+}
+
+ul.navTop li a {
+	padding:4px 2px;
+}
+
+#left_nav{
+	width:100%;
+}
+#left_nav li{
+	padding:2px;
+	display:inline-block;
+}
+
+#section{
+	width:100%;
+}
+#advertising{
+	float:left;
+	display:block;
+	width:50%;
+	margin:0px 10px;
+}
+#div_none{
+	display:none;
+	height:747px; 
+	float:left;
+	width:120px;
+}
+
+
+
+
+
+ul.navTop{
+	padding-left:5px;
+}
+
+
+.phone_img{
+	padding:2px;
+	width:50px;
+}
+.phone_img ~div{
+
+	padding:0px;
+	font-size:15px;
+	
+}
+.bottom_img{
+	
+	height:50px;
+}
+}

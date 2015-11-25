@@ -1,6 +1,4 @@
-﻿@model Shop.Models.AccountViewModels.LoginViewModel
-
-@{
+﻿@{
     Layout = null;
 }
 
@@ -12,11 +10,14 @@
 </head>
 <body>
 <div>
-    <form action="Login" method="POST">
-        <input type="email"/>
-        <input type="password"/>
-        <input type="submit">
-        </form>
+	<form action="/Account/SubmitLogin" method="POST">
+
+		<fieldset>
+			<input name="Email" type="email"/>
+			<input name="Password" type="password"/>
+			<input type="submit">
+		</fieldset>
+</form>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 namespace Shop.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseController
     {
         //
         // GET: /News/

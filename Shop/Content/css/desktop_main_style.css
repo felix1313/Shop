@@ -1,0 +1,185 @@
+body{
+	padding:0;
+	margin:0;
+	background-image:url('../img/background.jpg');
+}
+
+.top_img2{
+	margin-left:30%;
+	height:120px;
+}
+.top_img3{
+	margin-left:5%;
+	height:100px;
+}
+ul.navTop li{
+	list-style-type: none;
+	display: inline-block;
+	margin-left:12%;
+	margin-top:5px;
+}
+ul.navTop li a {
+	font-size:20px;
+	padding:7px 25px;
+	border: 2px solid #ffad33;
+	border-radius:8px;
+	color:white;
+    background-color: #661500;
+    text-decoration: none;
+}
+ul.navTop li a:hover{
+	color: #ff3300;
+}
+#left_nav{
+	float: left;
+	width:200px;
+	background-image:url('../img/slide-background4.jpg');
+}
+.nav_static{
+	position: static;
+}
+.nav_fixed{
+	position: fixed;
+	top: 0px;
+}
+#left_nav ul{
+	padding: 0px;
+}
+#left_nav li{
+	text-align: center;
+	cursor:pointer;
+	list-style-type: none;
+	padding: 15px 0px;
+	font-weight: bold;
+}
+#left_nav li:hover{
+	background-color:#ffff4d;
+}
+#left_nav li.non_active{
+	color:#661500;
+}
+#left_nav li.active{
+	color: red;
+}
+
+#section{
+	float: left;
+    background-color: #ffffcc;
+	width:68%;
+	padding-left:25px;
+}
+
+#advertising > img{
+	width:100%;
+}
+.advertising_pr{
+	
+	width:99%;
+	height:250px;
+}
+.example_pr{
+	position:relative;
+	float: left;
+	border:1px solid #ff8c19;
+	width:275px;
+	height:490px;
+}
+.example_pr h4{
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    float: left;
+	
+}
+.example_pr label {
+    width: 50%;
+    float: right;
+    font-size: 17px;
+    
+}
+.order_buttom{
+	position:absolute;
+	color:#661500;
+	font-size:20px;
+	font-weight:bold;
+	margin:0 75px;
+	padding:5px 10px;
+	text-decoration: none;
+	background-color:#8f6000;
+	border:2px solid #661500;
+	border-radius: 8px;
+	bottom:5px;
+}
+.order_buttom:hover{
+	color:#cc0000;
+}
+.img_product{
+	margin-left:50px;
+	height:300px;
+}
+
+.description{
+	overflow-y: scroll;
+    height: 100px;
+}
+#div_none{
+	display:none;
+	height:747px; 
+	float:left;
+	width:200px;
+}
+#advertising{
+	float:right;
+	width:15%;
+}
+#footer{
+	
+	background-image:url("../img/woodPanelBackground.jpg");
+	width:99.7%;
+	float:left;
+}
+.phone_img{
+	padding:20px;
+	float:left;
+	width:50px;
+}
+.phone_img ~div{
+	
+	float:left;
+	padding:20px 80px;
+	font-size:20px;
+	color:white;
+}
+.bottom_img{
+	margin:0px;
+	padding:0px;
+	float:right;
+	height:100px;
+}
+.back_to_home{
+	float:left;
+	width:70px;
+}
+.order_form fieldset{
+	background-color:#aeae00;
+	margin:0 auto;
+	width:500px;
+}
+.order_form h2{
+	font-weight:bold;
+	font-size:30px;
+	font-style:italic;
+	color:#800000;
+	text-align:center;
+}
+.order_form label{
+	font-size:20px;
+	font-weight:bold;
+	font-style:italic;
+	color:#800000;
+}
+.form_text{
+	width:80%;
+	height:25px;
+	font-size:20px;
+}

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Shop.Filters;
 
 namespace Shop.Controllers
 {
-    public class ManageOrdersController : Controller
+	[AuthorizationFilter]
+    public class ManageOrdersController : BaseController
     {
         //
         // GET: /ManageOrders/

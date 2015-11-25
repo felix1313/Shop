@@ -136,6 +136,7 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Attributes\DisplayNameAttribute.cs" />
+    <Compile Include="AuthenticationDbProvider.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminHomeController.cs" />
@@ -149,7 +150,9 @@
     <Compile Include="DisplayModelsProvider.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\TranslationsProviderType.cs" />
+    <Compile Include="Filters\AuthorizationFilterAttribute.cs" />
     <Compile Include="Filters\LocalizationFilter.cs" />
+    <Compile Include="IAuthenticationProvider.cs" />
     <Compile Include="IDisplayModelsProvider.cs" />
     <Compile Include="Localization\AbstractTranslationsProvider.cs" />
     <Compile Include="Localization\CamelCaseKeyGenerator.cs" />
@@ -159,10 +162,7 @@
     <Compile Include="Localization\ITranslationsKeyGenerator.cs" />
     <Compile Include="Localization\PropertiesTranslationsProvider.cs" />
     <Compile Include="Localization\TranslationsProviderFactory.cs" />
-    <Compile Include="Models\AccountViewModels\LoginViewModel.cs" />
-    <Compile Include="Models\AccountViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\AccountViewModels\User.cs" />
-    <Compile Include="Models\AccountViewModels\UserStore.cs" />
     <Compile Include="Models\DbModelConverter.cs" />
     <Compile Include="Observers\AdminsObserver.cs" />
     <Compile Include="Observers\IObservable.cs" />
@@ -190,7 +190,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.js" />
+    <Content Include="Content\css\desktop_main_style.css" />
+    <Content Include="Content\css\phone_landscape_main_style.css" />
+    <Content Include="Content\css\phone_portain_main_style.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\tablet_main_space.css" />
     <Content Include="Content\img\background.jpg" />
     <Content Include="Content\img\big_sale.jpg" />
     <Content Include="Content\img\bottom_right.png" />

@@ -1,0 +1,32 @@
+@media only screen and (min-width: 481px) and (max-width: 1024px){
+.top_img2{
+	margin-left:30%;
+	height:70px;
+}
+.top_img3{
+	margin-left:5%;
+	height:60px;
+}
+ul.navTop li{
+	margin-left:4%;
+	
+}
+ul.navTop li a {
+	padding:4px 15px;
+}
+#left_nav{
+	width:120px;
+}
+#advertising{
+	float:left;
+	display:block;
+	width:50%;
+	margin:0px 120px;
+}
+#div_none{
+	display:none;
+	height:747px; 
+	float:left;
+	width:120px;
+}
+}

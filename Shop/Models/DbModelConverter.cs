@@ -18,15 +18,5 @@ namespace Shop.Models
 				Price = unit.Price
 			};
 		}
-
-	    public static User ToUser(this Admin admin)
-	    {
-	        return new User
-	        {
-	            Id = admin.Id.ToString(),
-	            UserName = admin.Email,
-                PasswordHash = admin.Password
-	        };
-	    }
 	}
 }

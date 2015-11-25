@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.Identity;
+﻿using Shop.Attributes;
 
 namespace Shop.Models.AccountViewModels
 {
-    public class User : IUser
+    public class User
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
-        public string UserName { get; set; }
+		[DisplayName("user", "email")]
+		public string Email { get; set; }
 
-        public string PasswordHash { get; set; }
+		[DisplayName("user", "password")]
+		public string Password { get; set; }
     }
 }

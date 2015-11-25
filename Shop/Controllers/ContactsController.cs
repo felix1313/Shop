@@ -2,7 +2,7 @@
 
 namespace Shop.Controllers
 {
-    public class ContactsController : Controller
+    public class ContactsController : BaseController
     {
         //
         // GET: /Contacts/
