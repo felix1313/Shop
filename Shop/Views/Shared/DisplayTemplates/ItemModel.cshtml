@@ -6,5 +6,5 @@
     <img class="img_product" src="@Model.ImageSrc" alt="specific product">
     <p class="description">@Model.Description</p>
     
-    <a href="@string.Format("/Order/Index/{0}", @Model.Id)">Order</a>
+    <a href="@string.Format("/Order/Index?unitId={0}", @Model.Id)">Order</a>
 </div>

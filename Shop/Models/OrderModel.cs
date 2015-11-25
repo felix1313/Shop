@@ -2,20 +2,7 @@
 {
     public class OrderModel
     {
-        private readonly ItemModel orderedItem;
-
-        public OrderModel(ItemModel orderedItem)
-        {
-            this.orderedItem = orderedItem;
-        }
-
-        public ItemModel OrderedItem
-        {
-            get
-            {
-                return orderedItem;
-            }
-        }
+		public int ItemId { get; set; }
 
         public string CustomerName { get; set; }
 

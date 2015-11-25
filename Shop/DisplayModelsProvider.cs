@@ -15,5 +15,6 @@ namespace Shop
 		{
 			return _dataProvider.GetAllUnits().Select(u => u.ToItemModel());
 		}
+
 	}
 }

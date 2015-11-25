@@ -5,22 +5,25 @@
 }
 
 <h2></h2>
-<fieldset>
-    Name:<br>
-    <input type="text" value="@Model.CustomerName">
-    <br>
-    Address:<br>
-    <input type="text" value="@Model.Address">
-    <br>
-    Phone:<br>
-    <input type="text" value="@Model.Phone">
-    <br>
-    E-mail:<br>
-    <input type="text" value="@Model.Email">
-    <br>
-    Quantity:<br>
-    <input type="text" value="@Model.Quantity">
-    <br>
-    <br><br>
-    <input style="horiz-align: center" type="submit" value="Order">
-</fieldset>
+<form action="/Order/SubmitOrder" method="POST">
+	<fieldset>
+		<input name="ItemId" type="hidden" value="@Model.ItemId">
+		Name:<br>
+		<input type="text" required name="CustomerName" value="@Model.CustomerName">
+		<br>
+		Address:<br>
+		<input type="text" name="Address" value="@Model.Address">
+		<br>
+		Phone:<br>
+		<input type="tel" required name="Phone" value="@Model.Phone">
+		<br>
+		E-mail:<br>
+		<input type="email" required name="Email" value="@Model.Email">
+		<br>
+		Quantity:<br>
+		<input type="number" min="1" required name="Quantity" value="@Model.Quantity">
+		<br>
+		<br><br>
+		<input style="horiz-align: center" type="submit" value="Order">
+	</fieldset>
+</form>

@@ -8,12 +8,21 @@ namespace Shop.Controllers
     {
         //
         // GET: /Order/
-
-        public ActionResult Index(string unitId)
+		// TODO make POST
+        public ActionResult Index(int unitId)
         {
             //var unit = DB.DataProvider.Instance.GetAllUnits().First(u => u.Id.ToString().Equals(unitId));
-            return View(new OrderModel(new ItemModel()));
+			OrderModel orderModel = new OrderModel
+			{
+				ItemId = unitId
+			};
+
+	        return View(orderModel);
         }
 
+	    public ActionResult SubmitOrder(OrderModel order)
+	    {
+		    return RedirectToAction("Index","Home");
+	    }
     }
 }
