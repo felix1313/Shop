@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Shop.Helpers;
 using Shop.Models;
+using Shop.Observers;
 
 namespace Shop.Controllers
 {
@@ -9,6 +10,12 @@ namespace Shop.Controllers
     {
         //
         // GET: /Home/
+
+	    public HomeController()
+	    {
+			AddObserver(new LoggerObserver());
+	    }
+
 
         public ActionResult Index()
         {
@@ -25,6 +32,7 @@ namespace Shop.Controllers
                 dct.Add(itemId, new OrderedItemModel { UnitId = itemId, Quantity = 1 });
             else
                 dct[itemId].Quantity++;
+	        Notify(ActionFactory.CreateSimpleAction(string.Format("Item {0} was added", itemId)));
         }
 
         public void SaveSession(int itemId, int quantity)
@@ -37,5 +45,6 @@ namespace Shop.Controllers
             else
                 dct[itemId].Quantity = quantity;
         }
+	
     }
 }

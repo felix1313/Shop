@@ -8,6 +8,6 @@ namespace Shop.Observers
 {
     public interface IObserver
     {
-        void DoAction();
+        void DoAction(IAction a);
     }
 }

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Shop.Filters;
 using Shop.Models;
+using Shop.Observers;
 
 namespace Shop.Controllers
 {
@@ -15,7 +16,14 @@ namespace Shop.Controllers
         //
         // GET: /ManageItems/
 
-        public ActionResult Index()
+		public ManageItemsController()
+		{
+			AddObserver(new AdminsObserver());
+			AddObserver(new LoggerObserver());
+		}
+
+
+		public ActionResult Index()
         {
            return View(DisplayModelsProvider.GetItemModels());
         }
@@ -32,7 +40,11 @@ namespace Shop.Controllers
 		        var file = UploadFile(imgFile.InputStream, imgFile.FileName);
 		        item.ImageSrc = file.FullName.Substring(AppDomain.CurrentDomain.BaseDirectory.Length-1).Replace('\\','/');
 	        }
-	        DisplayModelsProvider.AddItem(item);
+	        
+			DisplayModelsProvider.AddItem(item);
+
+			Notify(ActionFactory.CreateSimpleAction("New Order!"));
+
             return RedirectToAction("Index");
         }
 

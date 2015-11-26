@@ -10,6 +10,6 @@ namespace Shop.Observers
     {
         void AddObserver(IObserver observer);
 
-        void Notify();
+        void Notify(IAction action);
     }
 }

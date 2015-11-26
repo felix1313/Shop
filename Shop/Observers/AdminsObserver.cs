@@ -7,9 +7,9 @@ namespace Shop.Observers
 {
     public class AdminsObserver : IObserver
     {
-        public void DoAction()
+        public void DoAction(IAction s)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
             // TODO send mails to admins
         }
     }
