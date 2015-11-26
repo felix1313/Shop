@@ -250,6 +250,7 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Translations.properties" />
+    <None Include="Translations.propertiesUa" />
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\Register.cshtml" />
     <None Include="Views\AdminHome\Index.cshtml" />
