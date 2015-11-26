@@ -166,9 +166,13 @@
     <Compile Include="Models\AccountViewModels\User.cs" />
     <Compile Include="Models\DbModelConverter.cs" />
     <Compile Include="Models\OrderedItemModel.cs" />
+    <Compile Include="Observers\ActionFactory.cs" />
     <Compile Include="Observers\AdminsObserver.cs" />
+    <Compile Include="Observers\IAction.cs" />
     <Compile Include="Observers\IObservable.cs" />
     <Compile Include="Observers\IObserver.cs" />
+    <Compile Include="Observers\LoggerObserver.cs" />
+    <Compile Include="Observers\SimpleAction.cs" />
     <Compile Include="ShopDataContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

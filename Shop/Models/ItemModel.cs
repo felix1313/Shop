@@ -7,16 +7,16 @@ namespace Shop.Models
     {
         public int Id { get; set; }
 
-        [DisplayName("item","name")]
+        [MyDisplayName("item","name")]
         public string Name { get; set; }
 
-        [DisplayName("item","description")]
+        [MyDisplayName("item","description")]
         public string Description { get; set; }
 
-        [DisplayName("item","image")]
+        [MyDisplayName("item","image")]
         public string ImageSrc { get; set; }
 
-        [DisplayName("item","price")]
+        [MyDisplayName("item","price")]
         public decimal Price { get; set; }
     }
 }

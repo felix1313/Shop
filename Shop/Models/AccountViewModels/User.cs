@@ -6,10 +6,10 @@ namespace Shop.Models.AccountViewModels
     {
         public int Id { get; set; }
 
-		[DisplayName("user", "email")]
+		[MyDisplayName("user", "email")]
 		public string Email { get; set; }
 
-		[DisplayName("user", "password")]
+		[MyDisplayName("user", "password")]
 		public string Password { get; set; }
     }
 }
