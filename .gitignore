@@ -1,7 +1,7 @@
 bin
 obj
-/Shop/Web.ConnectionStrings.config
 App_data
 *.suo
 *.user
 *.cache
+/Shop/Web.ConnectionStrings.config
