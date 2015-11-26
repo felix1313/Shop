@@ -4,6 +4,8 @@ namespace Shop.Models
 {
     public class OrderModel
     {
+		public int Id { get; set; }
+
         private readonly ObservableCollection<OrderedItemModel> orderedItems =
             new ObservableCollection<OrderedItemModel>();
 

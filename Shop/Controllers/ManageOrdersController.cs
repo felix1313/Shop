@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Shop.Filters;
+using Shop.Observers;
 
 namespace Shop.Controllers
 {
@@ -13,14 +14,22 @@ namespace Shop.Controllers
         //
         // GET: /ManageOrders/
 
-        public ActionResult Index()
-        {
-            return View();
+		public ManageOrdersController()
+		{
+			AddObserver(new LoggerObserver());
+		}
+
+		public ActionResult Index()
+		{
+			var orders = DisplayModelsProvider.GetNewOrders();
+
+            return View(orders);
         }
 
-        public ActionResult ConfirmOrder()
+        public ActionResult Confirm(int orderId)
         {
-            return View();
+            DisplayModelsProvider.ConfirmOrder(orderId);
+	        return RedirectToAction("Index");
         }
 
         public ActionResult DeclineOrder()

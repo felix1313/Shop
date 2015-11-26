@@ -13,5 +13,8 @@ namespace Shop
 		void AddItem(ItemModel itemModel);
 
 		void SaveOrder(OrderModel order);
+		
+		IEnumerable<OrderModel> GetNewOrders();
+		void ConfirmOrder(int  id);
 	}
 }

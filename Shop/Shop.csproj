@@ -261,6 +261,7 @@
     <None Include="Views\ManageItems\Add.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\OrderedItemTemplate.cshtml" />
     <None Include="Views\ManageItems\Index.cshtml" />
+    <None Include="Views\ManageOrders\Index.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
   </ItemGroup>
   <PropertyGroup>

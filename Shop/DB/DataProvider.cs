@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using Shop.Models;
 
 namespace Shop.DB
 {
@@ -83,6 +84,24 @@ namespace Shop.DB
 			using (var db = new ShopDataContext())
 			{
 				db.Units.InsertOnSubmit(unit);
+				db.SubmitChanges();
+			}
+	    }
+
+	    public IEnumerable<Order> GetNewOrders()
+	    {
+			using (var db = new ShopDataContext())
+			{
+				return db.Orders.Where(o => o.State == (int) OrderState.New);
+			}
+	    }
+
+	    public void ConfirmOrder(int id)
+	    {
+			using (var db = new ShopDataContext())
+			{
+				var unit = db.Orders.FirstOrDefault(u => u.Id == id);
+				unit.State = (int) OrderState.InProgress;
 				db.SubmitChanges();
 			}
 	    }

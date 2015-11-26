@@ -43,7 +43,7 @@ namespace Shop.Controllers
 	        
 			DisplayModelsProvider.AddItem(item);
 
-			Notify(ActionFactory.CreateSimpleAction("New Order!"));
+			Notify(ActionFactory.CreateSimpleAction("New Item!"));
 
             return RedirectToAction("Index");
         }

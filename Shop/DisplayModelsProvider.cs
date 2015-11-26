@@ -27,5 +27,15 @@ namespace Shop
 			   order.OrderedItems.Select(o => new UnitOrderRelation { UnitId = o.UnitId, Quantity = o.Quantity }),
 			   new CustomerInfo(order));
 		}
+
+		public IEnumerable<OrderModel> GetNewOrders()
+		{
+			return _dataProvider.GetNewOrders().Select(o=> o.ToOrderModel());
+		}
+
+		public void ConfirmOrder(int id)
+		{
+			_dataProvider.ConfirmOrder(id);
+		}
 	}
 }

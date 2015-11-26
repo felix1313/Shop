@@ -29,5 +29,34 @@ namespace Shop.Models
 				Name = itemModel.Name
 			};
 		}
+
+		public static OrderedItemModel ToOrderedItemModel(this UnitOrderRelation relation)
+		{
+			return new OrderedItemModel
+			{
+				UnitId = relation.UnitId,
+				Quantity = relation.Quantity
+			};
+		}
+
+		public static OrderModel ToOrderModel(this Order order)
+		{
+			var res = new OrderModel
+			{
+				Email = order.Email,
+				Address = order.Address,
+				Phone = order.Phone,
+				CustomerName = order.CustomerName,
+				Id=order.Id
+
+			};
+
+			foreach (var it in order.UnitOrderRelations.Select(r => r.ToOrderedItemModel()))
+			{
+				res.OrderedItems.Add(it);
+			}
+
+			return res;
+		}
 	}
 }

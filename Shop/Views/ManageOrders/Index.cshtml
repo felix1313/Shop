@@ -1,0 +1,55 @@
+﻿@model System.Collections.Generic.IEnumerable<Shop.Models.OrderModel>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>title</title>
+</head>
+<body>
+
+	<form action="/ManageOrders/Confirm" method="POST">
+		@foreach (var order in Model)
+		{
+
+			<fieldset>
+				Name:<br>
+				<input type="hidden" required name="Id" value="@order.Id">
+				@order.CustomerName
+				<br>
+				Address:<br>
+				@order.Address
+				<br>
+				Phone:<br>
+				@order.Phone
+				<br>
+				E-mail:<br>
+				@order.Email
+				<br>
+				<br />
+				<label>Item name</label>
+				<label style="margin-left: 17px">Quantity</label>
+				<br />
+				@{ int cnt = 0; }
+				@foreach (var item in order.OrderedItems)
+				{
+					<div>
+						<label>@item.ItemName</label>
+						@item.Quantity
+					</div>
+
+					cnt++;
+				}
+				<br><br>
+				<button style="horiz-align: center" name="Id" type="submit" value="@order.Id">Confirm</button>
+			</fieldset>
+		}
+
+	</form>
+
+</body>
+</html>
