@@ -16,5 +16,9 @@ namespace Shop
 			return _dataProvider.GetAllUnits().Select(u => u.ToItemModel());
 		}
 
+		public void AddItem(ItemModel itemModel)
+		{
+			_dataProvider.AddUnit(itemModel.ToDbModel());
+		}
 	}
 }

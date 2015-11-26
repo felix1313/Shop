@@ -1,0 +1,36 @@
+﻿@model dynamic
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>title</title>
+</head>
+<body>
+<div>
+	<h2></h2>
+	<form action="/ManageItems/SubmitAdd" method="POST" enctype="multipart/form-data">
+		<fieldset>
+			Name:<br>
+			<input type="text" required name="Name">
+			<br>
+			Description:<br>
+			<input type="text" name="Description">
+			<br>
+			Image:<br>
+			<input type="file" name="imgFile">
+			<br>
+			Price:<br>
+			<input type="number" required name="Price">
+			<br>
+			<br><br>
+			<input style="horiz-align: center" type="submit" value="Add">
+		</fieldset>
+	</form>
+</div>
+</body>
+</html>

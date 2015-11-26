@@ -9,5 +9,7 @@ namespace Shop
 	public interface IDisplayModelsProvider
 	{
 		IEnumerable<ItemModel> GetItemModels();
+
+		void AddItem(ItemModel itemModel);
 	}
 }

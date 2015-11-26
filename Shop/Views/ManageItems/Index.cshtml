@@ -1,0 +1,48 @@
+﻿@model System.Collections.Generic.IEnumerable<Shop.Models.ItemModel>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>title</title>
+</head>
+<body>
+<div>
+	<table>
+		<thead>
+		<tr>
+			<td>
+				Id
+			</td>
+			<td>
+				Name
+			</td>
+			<td>
+				Price
+			</td>
+		</tr>
+		</thead>
+		<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@item.Id
+				</td>
+				<td>
+					@item.Name
+				</td>
+				<td>
+					@item.Price
+				</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

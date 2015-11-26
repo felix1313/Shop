@@ -74,7 +74,17 @@ namespace Shop.DB
             using (var db = new ShopDataContext())
             {
                 db.Admins.InsertOnSubmit(new Admin {Email = email, Password = password});
+				db.SubmitChanges();
             }
         }
+
+	    public void AddUnit(Unit unit)
+	    {
+			using (var db = new ShopDataContext())
+			{
+				db.Units.InsertOnSubmit(unit);
+				db.SubmitChanges();
+			}
+	    }
     }
 }

@@ -15,7 +15,18 @@ namespace Shop.Models
 				Description = unit.Description,
 				Id=unit.Id,
 				ImageSrc = unit.ImageSrc,
-				Price = unit.Price
+				Price = unit.Price,
+				Name = unit.Name
+			};
+		}
+
+		public static Unit ToDbModel(this ItemModel itemModel)
+		{
+			return new Unit{
+				Description = itemModel.Description,
+				ImageSrc = itemModel.ImageSrc,
+				Price = itemModel.Price,
+				Name = itemModel.Name
 			};
 		}
 	}
