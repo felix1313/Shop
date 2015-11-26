@@ -30,7 +30,7 @@ namespace Shop
 
 		public IEnumerable<OrderModel> GetNewOrders()
 		{
-			return _dataProvider.GetNewOrders().Select(o=> o.ToOrderModel());
+			return _dataProvider.GetNewOrders().Select(o => o.ToOrderModel());
 		}
 
 		public void ConfirmOrder(int id)

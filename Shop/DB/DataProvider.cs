@@ -1,6 +1,7 @@
 ﻿using Shop.Enums;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -92,7 +93,10 @@ namespace Shop.DB
 	    {
 			using (var db = new ShopDataContext())
 			{
-				return db.Orders.Where(o => o.State == (int) OrderState.New);
+				DataLoadOptions options = new DataLoadOptions();
+				options.LoadWith<Order>(c => c.UnitOrderRelations);
+				db.LoadOptions = options;
+				return db.Orders.Where(o => o.State == (int) OrderState.New).ToList();
 			}
 	    }
 
