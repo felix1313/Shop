@@ -20,5 +20,12 @@ namespace Shop
 		{
 			_dataProvider.AddUnit(itemModel.ToDbModel());
 		}
+
+		public void SaveOrder(OrderModel order)
+		{
+			_dataProvider.CreateOrder(
+			   order.OrderedItems.Select(o => new UnitOrderRelation { UnitId = o.UnitId, Quantity = o.Quantity }),
+			   new CustomerInfo(order));
+		}
 	}
 }

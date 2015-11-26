@@ -11,5 +11,7 @@ namespace Shop
 		IEnumerable<ItemModel> GetItemModels();
 
 		void AddItem(ItemModel itemModel);
+
+		void SaveOrder(OrderModel order);
 	}
 }

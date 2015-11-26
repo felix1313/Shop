@@ -4,6 +4,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	function SaveSession(itemId, quantity) {
+		var data =
+		{
+			"itemId": itemId,
+			"quantity": quantity
+		};
+		$.post("/Home/SaveSession", data);
+	}
+</script>
+
+
 <h2></h2>
 <form action="/Order/SubmitOrder" method="POST">
 	<fieldset>
@@ -22,11 +36,19 @@
 	    <br/>
 	    <label>Item name</label>
 	    <label style="margin-left: 17px">Quantity</label>
-        <br/>
-	    @for(int i = 0; i < Model.OrderedItems.Count(); ++i)
-        {
-            @Html.DisplayFor(m => Model.OrderedItems[i], "OrderedItemTemplate")
-        }
+		<br/>
+		@{ int cnt = 0;}
+	    @foreach(var item in Model.OrderedItems)
+		{
+			<div>
+				<label>@item.ItemName</label>
+				<input type="hidden" value="@item.UnitId" name="orderedItems[@cnt].UnitId"/>
+				<input name="orderedItems[@cnt].Quantity" type="number" min="0" value="@item.Quantity" required style="margin-left: 17px" onchange="SaveSession(@item.UnitId, value)" />
+			</div>
+            //@Html.DisplayFor(m => Model.OrderedItems[i], "OrderedItemTemplate")
+			
+				cnt++;
+		}
 		<br><br>
 	    <input style="horiz-align: center" type="submit" value="Order">
 	</fieldset>

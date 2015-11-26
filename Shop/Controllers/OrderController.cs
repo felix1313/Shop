@@ -12,10 +12,8 @@ namespace Shop.Controllers
     {
         //
         // GET: /Order/
-		// TODO make POST
         public ActionResult Index()
         {
-            //var unit = DB.DataProvider.Instance.GetAllUnits().First(u => u.Id.ToString().Equals(unitId));
             OrderModel orderModel = new OrderModel();
             var dict = new Dictionary<int, OrderedItemModel>();
             if (Session[Constants.SESSION_BASKET] is Dictionary<int, OrderedItemModel>)
@@ -30,9 +28,7 @@ namespace Shop.Controllers
 
 	    public ActionResult SubmitOrder(OrderModel order)
 	    {
-            DataProvider.Instance.CreateOrder(
-                order.OrderedItems.Select(o => new UnitOrderRelation { UnitId = o.UnitId, Quantity = o.Quantity }),
-                new CustomerInfo(order));
+			DisplayModelsProvider.SaveOrder(order);
 	        Session[Constants.SESSION_BASKET] = null;
 		    return RedirectToAction("Index","Home");
 	    }

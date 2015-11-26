@@ -1,18 +1,2 @@
 ﻿@model Shop.Models.OrderedItemModel
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
-    function SaveSession(itemId, quantity) {
-        var data =
-        {
-            "itemId": itemId,
-            "quantity": quantity
-        };
-        $.post("/Home/SaveSession", data);
-    }
-</script>
-
-<div>
-    <label>@Model.ItemName</label>
-    <input type="text" value="@Model.Quantity" required style="margin-left: 17px" onchange="SaveSession(@Model.UnitId, value)" />
-</div>
