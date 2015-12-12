@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Shop.Attributes;
+﻿using Shop.Attributes;
+using Shop.TreeRelated;
 
 namespace Shop.Models
 {
-    public class ItemModel
+    public class ItemModel : IIdentifiable, IChild
     {
         public int Id { get; set; }
+
+        public int? ParentId { get; set; }
 
         [MyDisplayName("item","name")]
         public string Name { get; set; }
@@ -17,6 +19,6 @@ namespace Shop.Models
         public string ImageSrc { get; set; }
 
         [MyDisplayName("item","price")]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
     }
 }

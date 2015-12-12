@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Shop.Helpers;
 using Shop.Models;
 using Shop.Observers;
+using Shop.TreeRelated;
 
 namespace Shop.Controllers
 {
@@ -15,13 +17,20 @@ namespace Shop.Controllers
 	    {
 			AddObserver(new LoggerObserver());
 	    }
-
-
+        
         public ActionResult Index()
         {
-            //return View(new List<ItemModel>());
-	        return View(DisplayModelsProvider.GetItemModels());
+            return View(DisplayModelsProvider.GetItemModelRoots());
         }
+
+        ////public ActionResult SelectSubTree(int nodeId)
+        ////{
+        ////    var tree = DisplayModelsProvider.GetItemModelRoots();
+        ////    var node = tree.GetNodeById(nodeId);
+        ////    var model = new TreeWithCurrentItems(tree);
+        ////    model.CurrentItems.AddRange(node.GetLeafs().Select(v => v.Value));
+        ////    return View("Index", model);
+        ////}
 
         public void AddItemToBasket(int itemId)
         {
@@ -45,6 +54,5 @@ namespace Shop.Controllers
             else
                 dct[itemId].Quantity = quantity;
         }
-	
     }
 }

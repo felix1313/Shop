@@ -1,13 +1,47 @@
-﻿@model IEnumerable<Shop.Models.ItemModel>
+﻿@model Shop.TreeRelated.Tree<Shop.Models.ItemModel>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Home";
 }
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    function selectSubTree(itemId) {
+        $(".example_pr").css("display", "none");
+        var elems = $("#" + itemId).find(".treeItem");
+        for (var i = 0; i < elems.length; ++i) {
+            var vis = $("#itemsContainer").find(".example_pr");
+            for (var j = 0; j < vis.length; ++j){
+                if (vis[j].id === "ItemPresenter-" + elems[i].id) {
+                    $("#" + vis[j].id + ".example_pr").css("display", "block");
+                }
+            }
+        }
+        //$.post("/Home/SelectSubTree", data);
+    }
+</script>
+
 <body>
 @{
     <h1>@ViewBag.Test</h1>
     <h1>@ViewBag.Test</h1>
-    
-        @Html.DisplayForModel(Model)
-    }
+    <div>
+        <div style="float: left">
+            <nav id="left_nav" class='nav_static'>
+                <ul>
+                    @foreach (var root in @Model.Roots)
+                    {
+                        <li>@Html.DisplayFor(r => root, "ItemModelTreeNode")</li>
+                    }
+                </ul>
+            </nav>
+        </div>
+        <div id="itemsContainer">
+            @foreach (var item in @Model.Leafs)
+            {
+                @Html.DisplayFor(m => item.Value, "ItemModel")
+            }
+        </div>
+    </div>
+}
 </body>

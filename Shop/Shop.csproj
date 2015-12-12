@@ -188,6 +188,11 @@
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="TreeRelated\IChild.cs" />
+    <Compile Include="TreeRelated\IIdentifiable.cs" />
+    <Compile Include="TreeRelated\ITreeNode.cs" />
+    <Compile Include="TreeRelated\Tree.cs" />
+    <Compile Include="TreeRelated\TreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -262,6 +267,7 @@
     <Content Include="Views\Shared\DisplayTemplates\OrderedItemTemplate.cshtml" />
     <None Include="Views\ManageItems\Index.cshtml" />
     <None Include="Views\ManageOrders\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ItemModelTreeNode.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
   </ItemGroup>
   <PropertyGroup>

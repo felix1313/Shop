@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Shop.Models;
+using Shop.TreeRelated;
 
 namespace Shop
 {
 	public interface IDisplayModelsProvider
 	{
-		IEnumerable<ItemModel> GetItemModels();
+        IEnumerable<ItemModel> GetItemModels();
+
+        Tree<ItemModel> GetItemModelRoots(); 
 
 		void AddItem(ItemModel itemModel);
 

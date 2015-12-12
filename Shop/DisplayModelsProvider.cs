@@ -1,41 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Shop.DB;
 using Shop.Models;
+using Shop.TreeRelated;
 
 namespace Shop
 {
 	public class DisplayModelsDataBaseProvider : IDisplayModelsProvider
 	{
-		private readonly DataProvider _dataProvider = DataProvider.Instance;
+		private readonly DataProvider dataProvider = DataProvider.Instance;
 
 		public IEnumerable<ItemModel> GetItemModels()
 		{
-			return _dataProvider.GetAllUnits().Select(u => u.ToItemModel());
+			return dataProvider.GetAllUnits().Select(u => u.ToItemModel());
 		}
+
+	    public Tree<ItemModel> GetItemModelRoots()
+	    {
+            return new Tree<ItemModel>(GetItemModels());
+	    }
 
 		public void AddItem(ItemModel itemModel)
 		{
-			_dataProvider.AddUnit(itemModel.ToDbModel());
+			dataProvider.AddUnit(itemModel.ToDbModel());
 		}
 
 		public void SaveOrder(OrderModel order)
 		{
-			_dataProvider.CreateOrder(
+			dataProvider.CreateOrder(
 			   order.OrderedItems.Select(o => new UnitOrderRelation { UnitId = o.UnitId, Quantity = o.Quantity }),
 			   new CustomerInfo(order));
 		}
 
 		public IEnumerable<OrderModel> GetNewOrders()
 		{
-			return _dataProvider.GetNewOrders().Select(o => o.ToOrderModel());
+			return dataProvider.GetNewOrders().Select(o => o.ToOrderModel());
 		}
 
 		public void ConfirmOrder(int id)
 		{
-			_dataProvider.ConfirmOrder(id);
+			dataProvider.ConfirmOrder(id);
 		}
 	}
 }

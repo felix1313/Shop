@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Shop.Models.AccountViewModels;
+﻿using System.Linq;
 
 namespace Shop.Models
 {
@@ -16,7 +12,8 @@ namespace Shop.Models
 				Id=unit.Id,
 				ImageSrc = unit.ImageSrc,
 				Price = unit.Price,
-				Name = unit.Name
+				Name = unit.Name,
+                ParentId = unit.ParentId
 			};
 		}
 

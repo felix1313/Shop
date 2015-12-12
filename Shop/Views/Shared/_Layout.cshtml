@@ -18,23 +18,25 @@
 				<li><a href="/Home">@Helper.Translation("menu","home")</a></li>
 				<li><a href="/News">News</a></li>
 				<li><a href="/Contacts">Contact</a></li>
-				<li><a href="/Contacts">Credit</a></li>
+			    <li><a href="/Contacts">Credit</a></li>
+                <li><a href="/Order/Index">Complete order</a></li>
 			</ul>
 		</nav>
 	</header>
 
 
-	<nav id="left_nav" class='nav_static'>
-		<ul>
+@*<div id="left_nav" class='nav_static'>
+    
+    <ul>
 			<li class="non_active">Phones</li>
 			<li class="non_active">Computers</li>
 		    <li class="non_active">MP3 players</li>
 		    <li><a href="/Order/Index">Complete order</a></li>
 		</ul>
-	</nav>
+</div>*@
 
 	<div id="div_none"></div>
-	<div id="section">
+	<div id="section" style="margin-left: 50px">
 		<div class="products">
 		@RenderBody()
 		</div>
@@ -44,7 +46,6 @@
 		<div class="advertising_pr">
 
 		</div>
-		jfhdjfhdhfjh
 	</div>
 
 
