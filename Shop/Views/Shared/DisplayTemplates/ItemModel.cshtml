@@ -16,5 +16,10 @@
     <label class="price">@Model.Price</label>
     <img class="img_product" src="@Model.ImageSrc" alt="specific product">
     <p class="description">@Model.Description</p>
+    @foreach (var prop in @Model.Properties)
+    {
+        <label>@string.Format("{0}: {1}", prop.Value.Name, prop.Value.PropertyValue.Value)</label>
+        <br/>
+    }
     <button onclick="addToBasket(@Model.Id)">Add to basket</button>
 </div>

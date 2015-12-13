@@ -1,9 +1,33 @@
-﻿@model Shop.Models.UnitPropertyModel
+﻿@using Shop.Enums
+@model Shop.Models.UnitPropertyModel
 
-<div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter">
-    <span>@Model.Name</span>
-    <span>: </span>
-    <input type="text"/>
-</div>
+@switch (@Model.Type)
+{
+    case PropertyType.Boolean:
+        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter">
+            <span>@Model.Name</span>
+            <span>: </span>
+            <input type="checkbox"/>
+        </div>
+        break;
+    case PropertyType.String:
+        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter">
+            <span>@Model.Name</span>
+            <span>: </span>
+            <input type="text"/>
+        </div>
+        break;
+    case PropertyType.DateTime:
+    case PropertyType.Double:
+    case PropertyType.Long:
+        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter">
+            <span>@Model.Name</span>
+            <span>: </span>
+            <br/>
+            <span>minimum: </span><input type="text"/>
+            <span style="margin-left: 10px">maximum: </span><input type="text" />
+        </div>
+        break;
+}
 
 
