@@ -4,14 +4,14 @@
 @switch (@Model.Type)
 {
     case PropertyType.Boolean:
-        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter">
+        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter boolType">
             <span>@Model.Name</span>
             <span>: </span>
             <input type="checkbox"/>
         </div>
         break;
     case PropertyType.String:
-        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter">
+        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter stringType">
             <span>@Model.Name</span>
             <span>: </span>
             <input type="text"/>
@@ -20,12 +20,12 @@
     case PropertyType.DateTime:
     case PropertyType.Double:
     case PropertyType.Long:
-        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter">
+        <div id="@string.Format("PropertyFilter_{0}", @Model.Name)" class="propertyFilter comparableType">
             <span>@Model.Name</span>
             <span>: </span>
             <br/>
-            <span>minimum: </span><input type="text"/>
-            <span style="margin-left: 10px">maximum: </span><input type="text" />
+            <span>minimum: </span><input class="minProp" type="text"/>
+            <span style="margin-left: 10px">maximum: </span><input class="maxProp" type="text" />
         </div>
         break;
 }

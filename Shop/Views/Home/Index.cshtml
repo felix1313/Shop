@@ -8,12 +8,14 @@
 <script>
     function selectSubTree(itemId) {
         $(".example_pr").css("display", "none");
+        $(".example_pr").removeClass("currentSelected");
         var elems = $("#" + itemId).find(".treeItem");
         for (var i = 0; i < elems.length; ++i) {
             var vis = $("#itemsContainer").find(".example_pr");
             for (var j = 0; j < vis.length; ++j){
                 if (vis[j].id === "ItemPresenter-" + elems[i].id) {
                     $("#" + vis[j].id + ".example_pr").css("display", "block");
+                    $("#" + vis[j].id + ".example_pr").addClass("currentSelected");
                 }
             }
         }
@@ -29,7 +31,33 @@
     };
 
     function filterItems() {
-        
+        var items = $(".currentSelected");
+        $(items).css("display", "none");
+        var propFilters = $(".propertyFilter:visible");
+        for (var i = 0; i < items.length; ++i) {
+            var setVisible = true;
+            var propVal = $(items[i]).find(".propretyName").next(".propretyValue").html();
+            if (propVal === "" || propVal === null)
+                continue;
+            for (var j = 0; j < propFilters.length; ++j) {
+                if ($(propFilters[j]).hasClass("boolType")) {
+                    var checked = $(propFilters[j]).children("input[type='checkbox']").checked;
+                    setVisible = setVisible && (checked === propVal);
+                }
+                if ($(propFilters[j]).hasClass("stringType")) {
+                    var val = $(propFilters[j]).children("input[type='text']").val();
+                    setVisible = setVisible && (val === propVal);
+                }
+                if ($(propFilters[j]).hasClass("comparableType")) {
+                    var minn = $(propFilters[j]).children(".minProp").val();
+                    var maxx = $(propFilters[j]).children(".maxProp").val();
+                    setVisible = setVisible && (parseFloat(propVal) >= parseFloat(minn) && parseFloat(propVal) <= parseFloat(maxx));
+                }
+            }
+            if(setVisible) {
+                $(items[i]).css("display", "block");
+            }
+        }
     }
 </script>
 
@@ -59,7 +87,7 @@
             {
                 @Html.DisplayFor(m => prop, "UnitPropertyTemplate");
             }
-            <button onclick="filterItems">filter</button>
+            <button onclick="filterItems()">filter</button>
         </div>
     </div>
 }

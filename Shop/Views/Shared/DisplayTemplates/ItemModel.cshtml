@@ -18,8 +18,10 @@
     <p class="description">@Model.Description</p>
     @foreach (var prop in @Model.Properties)
     {
-        <label>@string.Format("{0}: {1}", prop.Value.Name, prop.Value.PropertyValue.Value)</label>
+        <p>@string.Format("{0}: {1}", prop.Value.Name, prop.Value.PropertyValue.Value)</p>
         <br/>
+        <span style="display: none" class="propretyName">@prop.Value.Name</span>
+        <span style="display: none" class="propretyValue">@prop.Value.PropertyValue.Value</span>
     }
     <button onclick="addToBasket(@Model.Id)">Add to basket</button>
 </div>
