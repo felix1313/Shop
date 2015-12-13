@@ -149,6 +149,7 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="DisplayModelsProvider.cs" />
     <Compile Include="Enums\Language.cs" />
+    <Compile Include="Enums\PropertyType.cs" />
     <Compile Include="Enums\TranslationsProviderType.cs" />
     <Compile Include="Filters\AuthorizationFilterAttribute.cs" />
     <Compile Include="Filters\LocalizationFilter.cs" />
@@ -166,6 +167,9 @@
     <Compile Include="Models\AccountViewModels\User.cs" />
     <Compile Include="Models\DbModelConverter.cs" />
     <Compile Include="Models\OrderedItemModel.cs" />
+    <Compile Include="Models\TreeWithProperties.cs" />
+    <Compile Include="Models\UnitPropertyModel.cs" />
+    <Compile Include="Models\UnitPropertyValueModel.cs" />
     <Compile Include="Observers\ActionFactory.cs" />
     <Compile Include="Observers\AdminsObserver.cs" />
     <Compile Include="Observers\IAction.cs" />
@@ -192,6 +196,7 @@
     <Compile Include="TreeRelated\IIdentifiable.cs" />
     <Compile Include="TreeRelated\ITreeNode.cs" />
     <Compile Include="TreeRelated\Tree.cs" />
+    <Compile Include="TreeRelated\TreeHelper.cs" />
     <Compile Include="TreeRelated\TreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -268,6 +273,7 @@
     <None Include="Views\ManageItems\Index.cshtml" />
     <None Include="Views\ManageOrders\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ItemModelTreeNode.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\UnitPropertyTemplate.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
   </ItemGroup>
   <PropertyGroup>

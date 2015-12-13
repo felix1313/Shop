@@ -35,6 +35,22 @@ namespace Shop.DB
             }
         }
 
+        public List<UnitProperty> GetAllProperties()
+        {
+            using (var hren = new ShopDataContext())
+            {
+                return hren.UnitProperties.ToList();
+            }
+        }
+
+        public List<UnitPropertyValue> GetAllPropertiyValues()
+        {
+            using (var hren = new ShopDataContext())
+            {
+                return hren.UnitPropertyValues.ToList();
+            }
+        }
+
         public Unit GetUnitById(int unitId)
         {
             using (var hren = new ShopDataContext())

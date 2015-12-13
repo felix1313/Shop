@@ -15,9 +15,18 @@ namespace Shop
 			return dataProvider.GetAllUnits().Select(u => u.ToItemModel());
 		}
 
-	    public Tree<ItemModel> GetItemModelRoots()
+	    public Tree<ItemModel> GetItemModelTree()
 	    {
-            return new Tree<ItemModel>(GetItemModels());
+            var tree = new Tree<ItemModel>(GetItemModels());
+	        var propModels = dataProvider.GetAllProperties().Select(p => p.ToPropertyModel());
+	        var propValModels = dataProvider.GetAllPropertiyValues().Select(pv => pv.ToPropertyValueModel());
+            tree.FillNodePropertyValues(propModels.ToList(), propValModels);
+	        return tree;
+	    }
+
+	    public IEnumerable<UnitPropertyModel> GetPropertyModels()
+	    {
+	        return dataProvider.GetAllProperties().Select(p => p.ToPropertyModel());
 	    }
 
 		public void AddItem(ItemModel itemModel)

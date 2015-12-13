@@ -1,4 +1,4 @@
-﻿@model Shop.TreeRelated.Tree<Shop.Models.ItemModel>
+﻿@model Shop.Models.TreeWithProperties
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Home";
@@ -17,8 +17,16 @@
                 }
             }
         }
-        //$.post("/Home/SelectSubTree", data);
-    }
+        var elemsProps = $(elems).children(".propertiesContainer").find("li");
+        var propFilters = $(".propertyFilter");
+        $(propFilters).css("display", "none");
+        for (var ii = 0; ii < elemsProps.length; ++ii) {
+            for (var jj = 0; jj < propFilters.length; ++jj) {
+                if (propFilters[jj].id === "PropertyFilter_" + $(elemsProps[ii]).html())
+                    $(propFilters[jj]).css("display", "block");
+            }
+        }
+    };
 </script>
 
 <body>
@@ -29,17 +37,23 @@
         <div style="float: left">
             <nav id="left_nav" class='nav_static'>
                 <ul>
-                    @foreach (var root in @Model.Roots)
+                    @foreach (var root in @Model.Tree.Roots)
                     {
                         <li>@Html.DisplayFor(r => root, "ItemModelTreeNode")</li>
                     }
                 </ul>
             </nav>
         </div>
-        <div id="itemsContainer">
-            @foreach (var item in @Model.Leafs)
+        <div id="itemsContainer" style="width: 50%">
+            @foreach (var item in @Model.Tree.Leafs)
             {
                 @Html.DisplayFor(m => item.Value, "ItemModel")
+            }
+        </div>
+        <div>
+            @foreach (var prop in @Model.Properties)
+            {
+                @Html.DisplayFor(m => prop, "UnitPropertyTemplate");
             }
         </div>
     </div>

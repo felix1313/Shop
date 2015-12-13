@@ -42,6 +42,12 @@ namespace Shop
     partial void InsertAdmin(Admin instance);
     partial void UpdateAdmin(Admin instance);
     partial void DeleteAdmin(Admin instance);
+    partial void InsertUnitPropertyValue(UnitPropertyValue instance);
+    partial void UpdateUnitPropertyValue(UnitPropertyValue instance);
+    partial void DeleteUnitPropertyValue(UnitPropertyValue instance);
+    partial void InsertUnitProperty(UnitProperty instance);
+    partial void UpdateUnitProperty(UnitProperty instance);
+    partial void DeleteUnitProperty(UnitProperty instance);
     #endregion
 		
 		public ShopDataContext() : 
@@ -103,6 +109,22 @@ namespace Shop
 			get
 			{
 				return this.GetTable<Admin>();
+			}
+		}
+		
+		public System.Data.Linq.Table<UnitPropertyValue> UnitPropertyValues
+		{
+			get
+			{
+				return this.GetTable<UnitPropertyValue>();
+			}
+		}
+		
+		public System.Data.Linq.Table<UnitProperty> UnitProperties
+		{
+			get
+			{
+				return this.GetTable<UnitProperty>();
 			}
 		}
 	}
@@ -579,6 +601,10 @@ namespace Shop
 		
 		private EntitySet<Unit> _Units;
 		
+		private EntitySet<UnitPropertyValue> _UnitPropertyValues;
+		
+		private EntitySet<UnitProperty> _UnitProperties;
+		
 		private EntityRef<Unit> _Unit1;
 		
     #region Extensibility Method Definitions
@@ -603,6 +629,8 @@ namespace Shop
 		{
 			this._UnitOrderRelations = new EntitySet<UnitOrderRelation>(new Action<UnitOrderRelation>(this.attach_UnitOrderRelations), new Action<UnitOrderRelation>(this.detach_UnitOrderRelations));
 			this._Units = new EntitySet<Unit>(new Action<Unit>(this.attach_Units), new Action<Unit>(this.detach_Units));
+			this._UnitPropertyValues = new EntitySet<UnitPropertyValue>(new Action<UnitPropertyValue>(this.attach_UnitPropertyValues), new Action<UnitPropertyValue>(this.detach_UnitPropertyValues));
+			this._UnitProperties = new EntitySet<UnitProperty>(new Action<UnitProperty>(this.attach_UnitProperties), new Action<UnitProperty>(this.detach_UnitProperties));
 			this._Unit1 = default(EntityRef<Unit>);
 			OnCreated();
 		}
@@ -757,6 +785,32 @@ namespace Shop
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_UnitPropertyValue", Storage="_UnitPropertyValues", ThisKey="Id", OtherKey="UnitId")]
+		public EntitySet<UnitPropertyValue> UnitPropertyValues
+		{
+			get
+			{
+				return this._UnitPropertyValues;
+			}
+			set
+			{
+				this._UnitPropertyValues.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_UnitProperty", Storage="_UnitProperties", ThisKey="Id", OtherKey="UnitId")]
+		public EntitySet<UnitProperty> UnitProperties
+		{
+			get
+			{
+				return this._UnitProperties;
+			}
+			set
+			{
+				this._UnitProperties.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_Unit", Storage="_Unit1", ThisKey="ParentId", OtherKey="Id", IsForeignKey=true)]
 		public Unit Unit1
 		{
@@ -833,6 +887,30 @@ namespace Shop
 		{
 			this.SendPropertyChanging();
 			entity.Unit1 = null;
+		}
+		
+		private void attach_UnitPropertyValues(UnitPropertyValue entity)
+		{
+			this.SendPropertyChanging();
+			entity.Unit = this;
+		}
+		
+		private void detach_UnitPropertyValues(UnitPropertyValue entity)
+		{
+			this.SendPropertyChanging();
+			entity.Unit = null;
+		}
+		
+		private void attach_UnitProperties(UnitProperty entity)
+		{
+			this.SendPropertyChanging();
+			entity.Unit = this;
+		}
+		
+		private void detach_UnitProperties(UnitProperty entity)
+		{
+			this.SendPropertyChanging();
+			entity.Unit = null;
 		}
 	}
 	
@@ -943,6 +1021,425 @@ namespace Shop
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UnitPropertyValue")]
+	public partial class UnitPropertyValue : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _PropertyId;
+		
+		private int _UnitId;
+		
+		private string _Value;
+		
+		private EntityRef<Unit> _Unit;
+		
+		private EntityRef<UnitProperty> _UnitProperty;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnPropertyIdChanging(int value);
+    partial void OnPropertyIdChanged();
+    partial void OnUnitIdChanging(int value);
+    partial void OnUnitIdChanged();
+    partial void OnValueChanging(string value);
+    partial void OnValueChanged();
+    #endregion
+		
+		public UnitPropertyValue()
+		{
+			this._Unit = default(EntityRef<Unit>);
+			this._UnitProperty = default(EntityRef<UnitProperty>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyId", DbType="Int NOT NULL")]
+		public int PropertyId
+		{
+			get
+			{
+				return this._PropertyId;
+			}
+			set
+			{
+				if ((this._PropertyId != value))
+				{
+					if (this._UnitProperty.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPropertyIdChanging(value);
+					this.SendPropertyChanging();
+					this._PropertyId = value;
+					this.SendPropertyChanged("PropertyId");
+					this.OnPropertyIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitId", DbType="Int NOT NULL")]
+		public int UnitId
+		{
+			get
+			{
+				return this._UnitId;
+			}
+			set
+			{
+				if ((this._UnitId != value))
+				{
+					if (this._Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUnitIdChanging(value);
+					this.SendPropertyChanging();
+					this._UnitId = value;
+					this.SendPropertyChanged("UnitId");
+					this.OnUnitIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Value", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Value
+		{
+			get
+			{
+				return this._Value;
+			}
+			set
+			{
+				if ((this._Value != value))
+				{
+					this.OnValueChanging(value);
+					this.SendPropertyChanging();
+					this._Value = value;
+					this.SendPropertyChanged("Value");
+					this.OnValueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_UnitPropertyValue", Storage="_Unit", ThisKey="UnitId", OtherKey="Id", IsForeignKey=true)]
+		public Unit Unit
+		{
+			get
+			{
+				return this._Unit.Entity;
+			}
+			set
+			{
+				Unit previousValue = this._Unit.Entity;
+				if (((previousValue != value) 
+							|| (this._Unit.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Unit.Entity = null;
+						previousValue.UnitPropertyValues.Remove(this);
+					}
+					this._Unit.Entity = value;
+					if ((value != null))
+					{
+						value.UnitPropertyValues.Add(this);
+						this._UnitId = value.Id;
+					}
+					else
+					{
+						this._UnitId = default(int);
+					}
+					this.SendPropertyChanged("Unit");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UnitProperty_UnitPropertyValue", Storage="_UnitProperty", ThisKey="PropertyId", OtherKey="Id", IsForeignKey=true)]
+		public UnitProperty UnitProperty
+		{
+			get
+			{
+				return this._UnitProperty.Entity;
+			}
+			set
+			{
+				UnitProperty previousValue = this._UnitProperty.Entity;
+				if (((previousValue != value) 
+							|| (this._UnitProperty.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UnitProperty.Entity = null;
+						previousValue.UnitPropertyValues.Remove(this);
+					}
+					this._UnitProperty.Entity = value;
+					if ((value != null))
+					{
+						value.UnitPropertyValues.Add(this);
+						this._PropertyId = value.Id;
+					}
+					else
+					{
+						this._PropertyId = default(int);
+					}
+					this.SendPropertyChanged("UnitProperty");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UnitProperty")]
+	public partial class UnitProperty : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private int _Type;
+		
+		private int _UnitId;
+		
+		private EntitySet<UnitPropertyValue> _UnitPropertyValues;
+		
+		private EntityRef<Unit> _Unit;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnTypeChanging(int value);
+    partial void OnTypeChanged();
+    partial void OnUnitIdChanging(int value);
+    partial void OnUnitIdChanged();
+    #endregion
+		
+		public UnitProperty()
+		{
+			this._UnitPropertyValues = new EntitySet<UnitPropertyValue>(new Action<UnitPropertyValue>(this.attach_UnitPropertyValues), new Action<UnitPropertyValue>(this.detach_UnitPropertyValues));
+			this._Unit = default(EntityRef<Unit>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Int NOT NULL")]
+		public int Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitId", DbType="Int NOT NULL")]
+		public int UnitId
+		{
+			get
+			{
+				return this._UnitId;
+			}
+			set
+			{
+				if ((this._UnitId != value))
+				{
+					if (this._Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUnitIdChanging(value);
+					this.SendPropertyChanging();
+					this._UnitId = value;
+					this.SendPropertyChanged("UnitId");
+					this.OnUnitIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UnitProperty_UnitPropertyValue", Storage="_UnitPropertyValues", ThisKey="Id", OtherKey="PropertyId")]
+		public EntitySet<UnitPropertyValue> UnitPropertyValues
+		{
+			get
+			{
+				return this._UnitPropertyValues;
+			}
+			set
+			{
+				this._UnitPropertyValues.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_UnitProperty", Storage="_Unit", ThisKey="UnitId", OtherKey="Id", IsForeignKey=true)]
+		public Unit Unit
+		{
+			get
+			{
+				return this._Unit.Entity;
+			}
+			set
+			{
+				Unit previousValue = this._Unit.Entity;
+				if (((previousValue != value) 
+							|| (this._Unit.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Unit.Entity = null;
+						previousValue.UnitProperties.Remove(this);
+					}
+					this._Unit.Entity = value;
+					if ((value != null))
+					{
+						value.UnitProperties.Add(this);
+						this._UnitId = value.Id;
+					}
+					else
+					{
+						this._UnitId = default(int);
+					}
+					this.SendPropertyChanged("Unit");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_UnitPropertyValues(UnitPropertyValue entity)
+		{
+			this.SendPropertyChanging();
+			entity.UnitProperty = this;
+		}
+		
+		private void detach_UnitPropertyValues(UnitPropertyValue entity)
+		{
+			this.SendPropertyChanging();
+			entity.UnitProperty = null;
 		}
 	}
 }

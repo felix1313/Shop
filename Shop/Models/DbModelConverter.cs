@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Shop.Enums;
 
 namespace Shop.Models
 {
@@ -55,5 +56,49 @@ namespace Shop.Models
 
 			return res;
 		}
+
+	    public static UnitPropertyModel ToPropertyModel(this UnitProperty property)
+	    {
+	        return new UnitPropertyModel
+	        {
+	            Id = property.Id,
+                Name = property.Name,
+                UnitId = property.UnitId,
+                Type = (PropertyType)property.Type
+	        };
+	    }
+
+        public static UnitProperty ToDbProperty(this UnitPropertyModel property)
+        {
+            return new UnitProperty
+            {
+                Id = property.Id,
+                Name = property.Name,
+                UnitId = property.UnitId,
+                Type = (int)property.Type
+            };
+        }
+
+        public static UnitPropertyValueModel ToPropertyValueModel(this UnitPropertyValue property)
+        {
+            return new UnitPropertyValueModel
+            {
+                Id = property.Id,
+                PropertyId = property.PropertyId,
+                UnitId = property.UnitId,
+                Value = property.Value
+            };
+        }
+
+        public static UnitPropertyValue ToDbPropertyValue(this UnitPropertyValueModel property)
+        {
+            return new UnitPropertyValue
+            {
+                Id = property.Id,
+                PropertyId = property.PropertyId,
+                UnitId = property.UnitId,
+                Value = property.Value
+            };
+        } 
 	}
 }

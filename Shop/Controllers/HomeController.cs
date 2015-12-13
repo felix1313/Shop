@@ -20,17 +20,11 @@ namespace Shop.Controllers
         
         public ActionResult Index()
         {
-            return View(DisplayModelsProvider.GetItemModelRoots());
+            var treeWIthPeoperties = new TreeWithProperties(
+                DisplayModelsProvider.GetItemModelTree(),
+                DisplayModelsProvider.GetPropertyModels());
+            return View(treeWIthPeoperties);
         }
-
-        ////public ActionResult SelectSubTree(int nodeId)
-        ////{
-        ////    var tree = DisplayModelsProvider.GetItemModelRoots();
-        ////    var node = tree.GetNodeById(nodeId);
-        ////    var model = new TreeWithCurrentItems(tree);
-        ////    model.CurrentItems.AddRange(node.GetLeafs().Select(v => v.Value));
-        ////    return View("Index", model);
-        ////}
 
         public void AddItemToBasket(int itemId)
         {

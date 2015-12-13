@@ -13,5 +13,11 @@
                 }
             }
         </ul>
+        <ul class="propertiesContainer" style="display: none">
+            @foreach (var prop in Model.Value.Properties)
+            {
+                <li>@prop.Key</li>
+            }
+        </ul>
     </li>
 }

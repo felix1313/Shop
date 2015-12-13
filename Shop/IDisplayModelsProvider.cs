@@ -8,7 +8,9 @@ namespace Shop
 	{
         IEnumerable<ItemModel> GetItemModels();
 
-        Tree<ItemModel> GetItemModelRoots(); 
+        Tree<ItemModel> GetItemModelTree();
+
+	    IEnumerable<UnitPropertyModel> GetPropertyModels();
 
 		void AddItem(ItemModel itemModel);
 
