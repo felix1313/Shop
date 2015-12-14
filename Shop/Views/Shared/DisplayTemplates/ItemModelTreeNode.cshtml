@@ -4,7 +4,7 @@
     var str = Model.Children.Any() ? "inline" : "none";
     <li class="treeItem" id="@Model.Value.Id" style="display: @str">
         <button onclick="selectSubTree(@Model.Value.Id)">@Model.Value.Name</button>
-        <ul style="margin-left: 10px">
+        <ul class="sub_categiry">
             @if (Model.Children.Count > 0)
             {
                 foreach (var node in Model.Children)
