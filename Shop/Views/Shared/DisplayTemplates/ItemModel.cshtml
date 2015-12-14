@@ -13,13 +13,10 @@
 
 <div id="@string.Format("ItemPresenter-{0}", @Model.Id)" class="example_pr">
     <h4>@Html.DisplayNameFor(m=>Model.Name)</h4>
-    <label class="price">@Model.Price</label>
     <img class="img_product" src="@Model.ImageSrc" alt="specific product">
-    <p class="description">@Model.Description</p>
     @foreach (var prop in @Model.Properties)
     {
         <p>@string.Format("{0}: {1}", prop.Value.Name, prop.Value.PropertyValue.Value)</p>
-        <br/>
         <span style="display: none" class="propretyName">@prop.Value.Name</span>
         <span style="display: none" class="propretyValue">@prop.Value.PropertyValue.Value</span>
     }

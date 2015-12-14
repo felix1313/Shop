@@ -32,7 +32,7 @@ ul.navTop li a:hover{
 }
 #left_nav{
 	float: left;
-	width:215px;
+	width:230px;
 }
 .nav_static{
 	position: static;
@@ -78,6 +78,7 @@ li.treeItem button{
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #854629;
+    width: 150px;
 
 }
 li.treeItem button:hover {
@@ -98,11 +99,11 @@ li.treeItem button:active {
 #section{
 	float: left;
     background-color: #ffffcc;
-	width:82%;
-	padding-left:5px;
-    margin-left: 2%;
+    width: 86%;
+    margin-left: 1%;
 }
-#itemsContainer button {
+#itemsContainer button  {
+    position:absolute;
 	font-weight:bold;
     margin-left: 55px;
 	padding:5px 10px;
@@ -112,24 +113,36 @@ li.treeItem button:active {
 	border-radius: 8px;
 	bottom:5px;
 }
-#itemsContainer button:hover{
+.filter button,.order_buttom {
+    margin-top: 5px;
+    padding:5px 10px;
+	text-decoration: none;
+	background-color:#8f6000;
+	border:2px solid #661500;
+	border-radius: 8px;
+}
+#itemsContainer button:hover, .filter button:hover,.order_buttom:hover{
 	color:white;
     cursor: pointer;
 }
+.filter {
+    width: 230px;
+}
+
 #advertising > img{
 	width:100%;
 }
 .advertising_pr{
-	
-	width:99%;
-	height:250px;
+
+    width: 99%;
 }
 
 .example_pr{
+    position: relative;
 	float: left;
 	border:1px solid #ff8c19;
-	width:215px;
-	height:490px;
+	width:230px;
+	height:450px;
 }
 .example_pr h4{
     padding: 0;
@@ -144,24 +157,8 @@ li.treeItem button:active {
     font-size: 17px;
     
 }
-.order_buttom{
-	position:absolute;
-	color:#661500;
-	font-size:20px;
-	font-weight:bold;
-	margin:0 75px;
-	padding:5px 10px;
-	text-decoration: none;
-	background-color:#8f6000;
-	border:2px solid #661500;
-	border-radius: 8px;
-	bottom:5px;
-}
-.order_buttom:hover{
-	color:#cc0000;
-}
+
 .img_product{
-	margin-left:20px;
 	height:300px;
 }
 
@@ -177,11 +174,11 @@ li.treeItem button:active {
 }
 #advertising{
 	float:right;
-	width:15%;
+	width:13%;
 }
 #footer{
 	
-	background-image:url("../img/woodPanelBackground.jpg");
+	background-image:url("../img/footer.jpg");
 	width:99.7%;
 	float:left;
 }
@@ -202,6 +199,7 @@ li.treeItem button:active {
 	padding:0px;
 	float:right;
 	height:100px;
+    width: 15%;
 }
 .back_to_home{
 	float:left;

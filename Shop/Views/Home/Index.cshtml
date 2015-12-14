@@ -67,6 +67,7 @@
     <h1>@ViewBag.Test</h1>
     <div>
         <div style="float: left">
+
             <nav id="left_nav" class='nav_static'>
                 <ul>
                     @foreach (var root in @Model.Tree.Roots)
@@ -75,20 +76,21 @@
                     }
                 </ul>
             </nav>
+            <div class="filter">
+                @foreach (var prop in @Model.Properties)
+                {
+                    @Html.DisplayFor(m => prop, "UnitPropertyTemplate");
+                }
+                <button onclick="filterItems()">filter</button>
+            </div>
         </div>
-        <div id="itemsContainer" style="width: 50%">
+        <div id="itemsContainer" >
             @foreach (var item in @Model.Tree.Leafs)
             {
                 @Html.DisplayFor(m => item.Value, "ItemModel")
             }
         </div>
-        <div>
-            @foreach (var prop in @Model.Properties)
-            {
-                @Html.DisplayFor(m => prop, "UnitPropertyTemplate");
-            }
-            <button onclick="filterItems()">filter</button>
-        </div>
+        
     </div>
 }
 </body>

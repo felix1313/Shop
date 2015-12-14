@@ -15,13 +15,17 @@ ul.navTop li a {
 	padding:4px 15px;
 }
 #left_nav{
-	width:120px;
+	width:180px;
+}
+#section{
+	float: left;
+    background-color: #ffffcc;
+    width: 80%;
+    margin-left: 1%;
 }
 #advertising{
-	float:left;
 	display:block;
-	width:50%;
-	margin:0px 120px;
+	width:19%;
 }
 #div_none{
 	display:none;
