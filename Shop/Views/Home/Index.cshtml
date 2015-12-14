@@ -12,14 +12,14 @@
         var elems = $("#" + itemId).find(".treeItem");
         for (var i = 0; i < elems.length; ++i) {
             var vis = $("#itemsContainer").find(".example_pr");
-            for (var j = 0; j < vis.length; ++j){
+            for (var j = 0; j < vis.length; ++j) {
                 if (vis[j].id === "ItemPresenter-" + elems[i].id) {
                     $("#" + vis[j].id + ".example_pr").css("display", "block");
                     $("#" + vis[j].id + ".example_pr").addClass("currentSelected");
                 }
             }
         }
-        var elemsProps = $(elems).children(".propertiesContainer").find("li");
+        var elemsProps = $("#" + itemId).children(".propertiesContainer").find("li");
         var propFilters = $(".propertyFilter");
         $(propFilters).css("display", "none");
         for (var ii = 0; ii < elemsProps.length; ++ii) {
@@ -36,25 +36,32 @@
         var propFilters = $(".propertyFilter:visible");
         for (var i = 0; i < items.length; ++i) {
             var setVisible = true;
-            var propVal = $(items[i]).find(".propretyName").next(".propretyValue").html();
-            if (propVal === "" || propVal === null)
-                continue;
-            for (var j = 0; j < propFilters.length; ++j) {
-                if ($(propFilters[j]).hasClass("boolType")) {
-                    var checked = $(propFilters[j]).children("input[type='checkbox']").checked;
-                    setVisible = setVisible && (checked === propVal);
-                }
-                if ($(propFilters[j]).hasClass("stringType")) {
-                    var val = $(propFilters[j]).children("input[type='text']").val();
-                    setVisible = setVisible && (val === propVal);
-                }
-                if ($(propFilters[j]).hasClass("comparableType")) {
-                    var minn = $(propFilters[j]).children(".minProp").val();
-                    var maxx = $(propFilters[j]).children(".maxProp").val();
-                    setVisible = setVisible && (parseFloat(propVal) >= parseFloat(minn) && parseFloat(propVal) <= parseFloat(maxx));
+            var propVals = $(items[i]).find(".propretyName").next(".propretyValue");
+            var propNames = $(items[i]).find(".propretyName");
+            for (var k = 0; k < propVals.length; ++k) {
+                var propVal = $(propVals[k]).html();
+                var propName = $(propNames[k]).html();
+                if (propVal === "" || propVal === null)
+                    continue;
+                for (var j = 0; j < propFilters.length; ++j) {
+                    if (propFilters[j].id !== "PropertyFilter_" + propName)
+                        continue;
+                    if ($(propFilters[j]).hasClass("boolType")) {
+                        var checked = $(propFilters[j]).children("input[type='checkbox']:checked");
+                        setVisible = setVisible && (checked.length > 0 && propVal.toLowerCase() === "true" || checked.length === 0 && propVal.toLowerCase() === "false");
+                    }
+                    if ($(propFilters[j]).hasClass("stringType")) {
+                        var val = $(propFilters[j]).children("input[type='text']").val();
+                        setVisible = setVisible && (val === propVal);
+                    }
+                    if ($(propFilters[j]).hasClass("comparableType")) {
+                        var minn = $(propFilters[j]).children(".minProp").val();
+                        var maxx = $(propFilters[j]).children(".maxProp").val();
+                        setVisible = setVisible && (parseFloat(propVal) >= parseFloat(minn) && parseFloat(propVal) <= parseFloat(maxx));
+                    }
                 }
             }
-            if(setVisible) {
+            if (setVisible) {
                 $(items[i]).css("display", "block");
             }
         }
