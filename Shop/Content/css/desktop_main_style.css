@@ -34,13 +34,7 @@ ul.navTop li a:hover{
 	float: left;
 	width:230px;
 }
-.nav_static{
-	position: static;
-}
-.nav_fixed{
-	position: fixed;
-	top: 0px;
-}
+
 #left_nav ul{
 	padding: 0px;
 }
@@ -136,7 +130,13 @@ li.treeItem button:active {
 
     width: 99%;
 }
-
+.go_up {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: none;
+    height: 50px;
+}
 .example_pr{
     position: relative;
 	float: left;
@@ -201,10 +201,7 @@ li.treeItem button:active {
 	height:100px;
     width: 15%;
 }
-.back_to_home{
-	float:left;
-	width:70px;
-}
+
 .order_form fieldset{
 	background-color:#aeae00;
 	margin:0 auto;
