@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Shop.Models.ItemModel>
+﻿@model Shop.Models.TreeWithProperties
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -43,19 +43,21 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model)
+        @foreach (var el in Model.Tree.Leafs)
         {
-            <tr>
-                <td>
-                    @item.Id
-                </td>
-                <td>
-                    @item.Name
-                </td>
-                <td>
-                    @item.Price
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @el.Value.Id
+                    </td>
+                    <td>
+                        @el.Value.Name
+                    </td>
+                    <td>
+                        @el.Value.Price
+                    </td>
+                   
+                </tr>
+            
         }
         </tbody>
     </table>

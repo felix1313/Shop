@@ -1,0 +1,23 @@
+﻿@model Shop.TreeRelated.ITreeNode<Shop.Models.ItemModel>
+
+@{
+    var str = Model.Children.Any() ? "inline" : "none";
+    <li class="treeItem" id="@Model.Value.Id" style="display: @str">
+        <button>@Model.Value.Name</button>
+        <ul class="sub_categiry">
+            @if (Model.Children.Count > 0)
+            {
+                foreach (var node in Model.Children)
+                {
+                    @Html.DisplayFor(x => node, "ItemModelTreeNode")
+                }
+            }
+        </ul>
+        <ul class="propertiesContainer" style="display: none">
+            @foreach (var prop in Model.Value.Properties)
+            {
+                <li>@prop.Key</li>
+            }
+        </ul>
+    </li>
+}

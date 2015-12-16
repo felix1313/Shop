@@ -274,6 +274,7 @@
     <None Include="Views\ManageOrders\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ItemModelTreeNode.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\UnitPropertyTemplate.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ItemModelReviewTreeNode.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
   </ItemGroup>
   <PropertyGroup>

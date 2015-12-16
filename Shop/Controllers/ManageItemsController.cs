@@ -24,9 +24,9 @@ namespace Shop.Controllers
 
 
 		public ActionResult Index()
-        {
-           return View(DisplayModelsProvider.GetItemModels());
-        }
+		{
+		    return View(new TreeWithProperties(DisplayModelsProvider.GetItemModelTree(),DisplayModelsProvider.GetPropertyModels()));
+		}
 
         public ActionResult Add()
         {

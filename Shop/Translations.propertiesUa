@@ -4,6 +4,8 @@ menu.contact=Контакти
 menu.credit=Кредит
 menu.complete_order=Оформити замовлення
 
+order.id=Номер
+order.price=Ціна
 order.name=Назва
 order.address=Адреса
 order.phone=Телефон
