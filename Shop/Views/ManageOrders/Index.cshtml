@@ -1,7 +1,8 @@
 ﻿@model System.Collections.Generic.IEnumerable<Shop.Models.OrderModel>
 
 @{
-	Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home"; 
 }
 
 <!DOCTYPE html>
@@ -17,22 +18,22 @@
 		{
 
 			<fieldset>
-				Name:<br>
+				<label>@Helper.Translation("order", "name"):</label><br>
 				<input type="hidden" required name="Id" value="@order.Id">
 				@order.CustomerName
 				<br>
-				Address:<br>
+				<label>@Helper.Translation("order", "address"):</label><br>
 				@order.Address
 				<br>
-				Phone:<br>
+				<label>@Helper.Translation("order", "phone"):</label><br>
 				@order.Phone
 				<br>
-				E-mail:<br>
+				<label>@Helper.Translation("order", "e_mail"):</label><br>
 				@order.Email
 				<br>
 				<br />
-				<label>Item name</label>
-				<label style="margin-left: 17px">Quantity</label>
+				<label>@Helper.Translation("order", "item_name")</label>
+				<label >@Helper.Translation("order", "quantity")</label>
 				<br />
 				@{ int cnt = 0; }
 				@foreach (var item in order.OrderedItems)

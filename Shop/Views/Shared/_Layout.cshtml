@@ -5,21 +5,23 @@
 <head>
 	<title>Shop</title>
 	<link rel="stylesheet" type="text/css" href="../../Content/css/styles.css">
-	<script src="../../Content/js/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
 	<header id="header">
 		<div>
 			<img class="top_img2" src="../../Content/img/w_shop.png">
-			<img class="top_img3" src="../../Content/img/shop_name.jpg">
-		</div>
+		    <img class="top_img3" src="../../Content/img/shop_name.jpg">
+            <a href="http://localhost:49815/?lang=Ua"><img onclick="lang('Ua')" id="ukraine_flag" class="top_img3" src="../../Content/img/ukraine.png"></a>
+		    <a href="http://localhost:49815/?lang=Uk"><img onclick="lang('Uk')" id="UK_flag" src="../../Content/img/UKflag.jpg"></a>
+</div>
 		<nav>
 			<ul class="navTop">
 				<li><a href="/Home">@Helper.Translation("menu","home")</a></li>
-				<li><a href="/News">News</a></li>
-				<li><a href="/Contacts">Contact</a></li>
-			    <li><a href="/Contacts">Credit</a></li>
-                <li><a href="/Order/Index">Complete order</a></li>
+				<li><a href="/News">@Helper.Translation("menu", "news")</a></li>
+				<li><a href="/Contacts">@Helper.Translation("menu", "contact")</a></li>
+			    <li><a href="/Contacts">@Helper.Translation("menu", "credit")</a></li>
+                <li><a href="/Order/Index">@Helper.Translation("menu", "complete_order")</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -27,12 +29,13 @@
 
 
 
-	<div id="div_none"></div>
-	<div id="section">
-		<div class="products">
-		@RenderBody()
-		</div>
-	</div>
+
+<div id="section">
+    <div id="div_none"></div>
+    <div class="products">
+        @RenderBody()
+    </div>
+</div>
 	<div id="advertising">
 		<img src="../../Content/img/big_sale.jpg" alt="specific product">
 		<div class="advertising_pr">
@@ -45,12 +48,13 @@
 		<div class="contact_f">
 			<img class="phone_img" src="../../Content/img/phone.jpg">
 			<div>
-				0 (800) 000 000<br />
-				free in Ukrain
+			    0 (800) 000 000<br/>
+                @Helper.Translation("footer", "free_in_Ukraine")
 			</div>
-			<div>
-				COMPANY:W-SHOP)*
-			</div>
+		    <div>
+		        @Helper.Translation("footer", "COMPANY_W_SHOP")
+		        
+		    </div>
 			<img class="bottom_img" src="../../Content/img/bottom_right.png">
 		</div>
 

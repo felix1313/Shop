@@ -1,7 +1,8 @@
 ﻿@model dynamic
 
 @{
-	Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
 }
 
 <!DOCTYPE html>
@@ -15,16 +16,16 @@
 	<h2></h2>
 	<form action="/ManageItems/SubmitAdd" method="POST" enctype="multipart/form-data">
 		<fieldset>
-			Name:<br>
+			<label>Name:</label><br>
 			<input type="text" required name="Name">
 			<br>
-			Description:<br>
+			<label>Description:</label><br>
 			<input type="text" name="Description">
 			<br>
-			Image:<br>
+			<label>Image:</label><br>
 			<input type="file" name="imgFile">
 			<br>
-			Price:<br>
+			<label>Price:</label><br>
 			<input type="number" required name="Price">
 			<br>
 			<br><br>

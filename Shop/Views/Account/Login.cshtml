@@ -6,17 +6,26 @@
 
 <html>
 <head>
-    <title>title</title>
+    <title>Log in</title>
+    <link rel="stylesheet" type="text/css" href="../../Content/css/styles.css">
 </head>
-<body>
+<body style="background-image: none">
 <div>
-	<form action="/Account/SubmitLogin" method="POST">
+	<form class="log_in" action="/Account/SubmitLogin" method="POST">
 
-		<fieldset>
-			<input name="Email" type="email"/>
-			<input name="Password" type="password"/>
-			<input type="submit">
-		</fieldset>
+        <fieldset>
+            
+            <label class="_label">
+                @Helper.Translation("label", "email")
+            </label>
+            <input class="_input" name="Email" type="email" />
+            <br />
+           <label class="_label">
+                  @Helper.Translation("label", "password")</label>
+             <input class="_input" name="Password" type="password" />
+            <br />
+            <input class="order_buttom" type="submit" value="Log in">
+        </fieldset>
 </form>
 </div>
 </body>

@@ -1,48 +1,86 @@
 ﻿@model IEnumerable<Shop.Models.ItemModel>
 
 @{
-	Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-	<title>title</title>
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../Content/css/styles.css">
+    <script src="../../Content/js/jquery-1.11.3.min.js"></script>
+    <script>
+        function openAddFile() {
+            $("#addHTML").css("display", "block");
+            $("#indexHTML").css("display", "none");
+        }
+
+        function addNewItem() {
+            $("#addHTML").css("display", "none");
+            $("#indexHTML").css("display", "block");
+            window.location.reload();
+        }
+
+    </script>
 </head>
-<body>
-<div>
-	<table>
-		<thead>
-		<tr>
-			<td>
-				Id
-			</td>
-			<td>
-				Name
-			</td>
-			<td>
-				Price
-			</td>
-		</tr>
-		</thead>
-		<tbody>
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td>
-					@item.Id
-				</td>
-				<td>
-					@item.Name
-				</td>
-				<td>
-					@item.Price
-				</td>
-			</tr>
-		}
-		</tbody>
-	</table>
+<body class="manage_items_body">
+<div id="indexHTML">
+    <table>
+        <thead>
+        <tr>
+            <td>
+                <label>@Helper.Translation("order", "id")</label>
+            </td>
+            <td>
+                <label>@Helper.Translation("order", "name")</label>
+            </td>
+            <td>
+                <label>@Helper.Translation("order", "price")</label>
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <button class="order_buttom" onclick="openAddFile()">@Helper.Translation("button", "add")</button>
 </div>
+    <div id="addHTML" >
+        <h2></h2>
+        <form action="/ManageItems/SubmitAdd" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <label>@Helper.Translation("manage_items_add", "name"):</label><br>
+                <input type="text" required name="Name">
+                <br>
+                <label>@Helper.Translation("manage_items_add", "description"):</label><br>
+                <input type="text" name="Description">
+                <br>
+                <label>@Helper.Translation("manage_items_add", "image"):</label><br>
+                <input class="order_buttom"style="width: 180px;" type="file" name="imgFile">
+                <br>
+                <label>@Helper.Translation("manage_items_add", "price"):</label><br>
+                <input type="number" required name="Price">
+                <br>
+                <br><br>
+                <input class="order_buttom" onclick="addNewItem()" style="horiz-align: center" type="submit" value="Add">
+            </fieldset>
+        </form>
+    </div>
 </body>
 </html>

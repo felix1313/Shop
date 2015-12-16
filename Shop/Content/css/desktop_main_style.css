@@ -12,6 +12,20 @@ body{
 	margin-left:5%;
 	height:100px;
 }
+#ukraine_flag {
+    height: 20px;
+    width: 30px;
+    position: absolute;
+    top: 20px;
+    right: 150px;
+}
+#UK_flag {
+     width: 30px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 90px;
+}
 ul.navTop li{
 	list-style-type: none;
 	display: inline-block;
@@ -32,7 +46,7 @@ ul.navTop li a:hover{
 }
 #left_nav{
 	float: left;
-	width:230px;
+	width:200px;
 }
 
 #left_nav ul{
@@ -43,12 +57,29 @@ ul.navTop li a:hover{
 	list-style-type: none;
 	font-weight: bold;
 }
+.nav_static {
+    float: left;
+}
+.nav_fixed {
+    position: fixed;
+    height: 400px;
+    left: 1%;
+    top: 0px;
+    margin: 0;
+}
+#div_none{
+    float: left;
+	display:none;
+	height:460px; 
+	float:left;
+	width:200px;
+}
 .sub_categiry {
     margin-left: 10px;
 }
 
 
-li.treeItem button{
+li.treeItem button, .manage{
  	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
 	box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -72,10 +103,10 @@ li.treeItem button{
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #854629;
-    width: 150px;
+    width: 140px;
 
 }
-li.treeItem button:hover {
+li.treeItem button:hover, .manage:hover {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
 	background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
 	background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
@@ -106,8 +137,10 @@ li.treeItem button:active {
 	border:2px solid #661500;
 	border-radius: 8px;
 	bottom:5px;
+    left: 20px;
 }
-.filter button,.order_buttom {
+
+.filter button,.order_buttom  {
     margin-top: 5px;
     padding:5px 10px;
 	text-decoration: none;
@@ -120,7 +153,8 @@ li.treeItem button:active {
     cursor: pointer;
 }
 .filter {
-    width: 230px;
+    width: 200px;
+    height: 460px;
 }
 
 #advertising > img{
@@ -160,18 +194,14 @@ li.treeItem button:active {
 
 .img_product{
 	height:300px;
+    max-width: 230px;
 }
 
 .description{
 	overflow-y: scroll;
     height: 100px;
 }
-#div_none{
-	display:none;
-	height:747px; 
-	float:left;
-	width:200px;
-}
+
 #advertising{
 	float:right;
 	width:13%;
@@ -199,7 +229,7 @@ li.treeItem button:active {
 	padding:0px;
 	float:right;
 	height:100px;
-    width: 15%;
+    width: 13%;
 }
 
 .order_form fieldset{
@@ -224,4 +254,22 @@ li.treeItem button:active {
 	width:80%;
 	height:25px;
 	font-size:20px;
+}
+
+.log_in {
+    background-image:url('../img/background.jpg');
+}
+label {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: #800000;
+    display: inline-block;
+    width: 130px;
+}
+.manage_items_body #footer {
+    display: none;
+}
+#addHTML {
+    display: none;
 }

@@ -8,6 +8,20 @@
 	margin-left:4%;
 	height:40px;
 }
+#ukraine_flag {
+    height: 20px;
+    width: 30px;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+#UK_flag {
+     width: 30px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+}
 ul.navTop li{
 	margin-left:0px;
 	display: inline-block;
@@ -41,7 +55,10 @@ ul.navTop li a {
 	width:120px;
 }
 
-
+.filter {
+    width: 230px;
+    height: 540px;
+}
 
 
 

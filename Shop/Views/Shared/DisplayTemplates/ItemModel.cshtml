@@ -12,7 +12,7 @@
 </script>
 
 <div id="@string.Format("ItemPresenter-{0}", @Model.Id)" class="example_pr">
-    <h4>@Html.DisplayNameFor(m=>Model.Name)</h4>
+    <h4>@Html.DisplayFor(m=>Model.Name)</h4>
     <img class="img_product" src="@Model.ImageSrc" alt="specific product">
     @foreach (var prop in @Model.Properties)
     {
@@ -20,5 +20,5 @@
         <span style="display: none" class="propretyName">@prop.Value.Name</span>
         <span style="display: none" class="propretyValue">@prop.Value.PropertyValue.Value</span>
     }
-    <button onclick="addToBasket(@Model.Id)">Add to basket</button>
+    <button onclick="addToBasket(@Model.Id)">@Helper.Translation("example_pr", "Add_to_basket")</button>
 </div>

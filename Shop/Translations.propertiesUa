@@ -1,3 +1,35 @@
 ﻿menu.home = Головна
+menu.news= Новини
+menu.contact=Контакти
+menu.credit=Кредит
+menu.complete_order=Оформити замовлення
+
+order.name=Назва
+order.address=Адреса
+order.phone=Телефон
+order.e_mail=Електронна пошта
+order.item_name=Назва товару
+order.quantity=Кількість
+
+button.order=Замовити
+example_pr.Add_to_basket=Додати до кошика
+
+footer.free_in_Ukraine=вільно по Україні
+footer.COMPANY_W_SHOP=КОМПАНІЯ W-SHOP)*
+
 item.price = Ціна
 item.name = Назва
+
+label.email = Пошта
+label.password = Пароль
+
+button.add = Додати
+
+manage_items.id=Id
+manage_items.name=Назва
+manage_items.price=Ціна
+
+manage_items_add.name=Назва
+manage_items_add.description=Опис
+manage_items_add.image=Картинка
+manage_items_add.price=Ціна

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Shop.Filters;
-using Shop.Models;
+using Shop.Models;  
 using Shop.Observers;
 
 namespace Shop.Controllers

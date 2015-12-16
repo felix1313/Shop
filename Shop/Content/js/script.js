@@ -17,4 +17,26 @@ $(function() {
   	}else{
   	    $('.go_up').css('display','none');
   	}
-})});
+  })
+});
+
+
+$(function () {
+    $('.top_img3_img_lang').click(function lang() {
+        console.log(window.location.href);
+        window.location.href += '?lang=' + lng;
+    });
+
+    $(window).scroll(function () {
+
+       
+        if (window.pageYOffset > 200) {
+            $('#left_section').removeClass("nav_static").addClass("nav_fixed");
+            $('#itemsContainer').css('margin-left', '200px');
+
+        } else {
+            $('#left_section').removeClass("nav_fixed").addClass("nav_static");
+            $('#div_none').css('display', 'none');
+        }
+    })
+});

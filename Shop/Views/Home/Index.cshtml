@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Home";
 }
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
     function selectSubTree(itemId) {
@@ -31,6 +30,7 @@
     };
 
     function filterItems() {
+     
         var items = $(".currentSelected");
         $(items).css("display", "none");
         var propFilters = $(".propertyFilter:visible");
@@ -73,9 +73,9 @@
     <h1>@ViewBag.Test</h1>
     <h1>@ViewBag.Test</h1>
     <div>
-        <div style="float: left">
+        <div id="left_section" class='nav_static'>
 
-            <nav id="left_nav" class='nav_static'>
+            <nav id="left_nav">
                 <ul>
                     @foreach (var root in @Model.Tree.Roots)
                     {

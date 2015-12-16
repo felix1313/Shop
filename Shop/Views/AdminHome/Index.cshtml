@@ -1,7 +1,8 @@
 ﻿
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
 }
 
 <!DOCTYPE html>
@@ -10,11 +11,11 @@
 <head>
     <title>title</title>
 </head>
-<body>
-<div>
+<body class="manage_items_body">
+    <div>
 
-	<a href="/ManageItems">Manage Items</a>
-	<a href="/ManageOrders">Manage Orders</a>
-</div>
+        <a class="manage" href="/ManageItems">Manage Items</a><br/>
+        <a class="manage" href="/ManageOrders">Manage Orders</a>
+    </div>
 </body>
 </html>
